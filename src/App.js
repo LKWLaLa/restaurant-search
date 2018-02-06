@@ -1,8 +1,16 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
+
+  componentWillMount () {
+        const es = document.createElement("script");
+        es.type = 'text/javascript'; 
+        es.async = true;
+        es.src = ('https:' === document.location.protocol ? 'https://' : 'http://developers.') + 'eatstreet.com/api-js-sdk/js/sdk-remote.js';
+        document.body.appendChild(es);
+    }
+
   render() {
     return (
       <div className="App">
