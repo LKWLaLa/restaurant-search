@@ -1,21 +1,26 @@
 import React, { Component } from 'react';
 import './App.css';
+require('dotenv').config()
+let EatStreet = require('eatstreet');
 
 class App extends Component {
 
-  componentWillMount () {
-        const es = document.createElement("script");
-        es.type = 'text/javascript'; 
-        es.async = true;
-        es.src = ('https:' === document.location.protocol ? 'https://' : 'http://developers.') + 'eatstreet.com/api-js-sdk/js/sdk-remote.js';
-        document.body.appendChild(es);
+  componentDidMount () {
+    let ES = new EatStreet(process.env.REACT_APP_ES_KEY);
+    ES.SearchRestaurants({address:'10025'}, function(err, res){
+    if(err){
+        console.log(err);
     }
+    res.restaurants.forEach(rest => console.log(rest.name))
+});
+    }
+
 
   render() {
     return (
       <div className="App">
         <header className="App-header">
-          <h1 className="App-title">Welcome to React</h1>
+          <h1 className="App-title">Restaurants</h1>
         </header>
         <p className="App-intro">
           To get started, edit <code>src/App.js</code> and save to reload.
