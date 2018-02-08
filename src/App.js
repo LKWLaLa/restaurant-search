@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
+import RestaurantsContainer from './RestaurantsContainer'
 require('dotenv').config()
-let EatStreet = require('eatstreet');
+const EatStreet = require('eatstreet');
 
 class App extends Component {
 
@@ -12,6 +13,7 @@ class App extends Component {
         console.log(err);
     }
     res.restaurants.forEach(rest => console.log(rest.name))
+    console.log(res.restaurants.length)
 });
     }
 
@@ -22,9 +24,7 @@ class App extends Component {
         <header className="App-header">
           <h1 className="App-title">Restaurants</h1>
         </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <RestaurantsContainer restaurants={[1,2,3,4,5]}/>
       </div>
     );
   }
