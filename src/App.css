@@ -4,8 +4,9 @@
 
 .App-header {
   background-color: #222;
-  height: 150px;
+  height: 75px;
   padding: 20px;
+  margin-bottom: 20px;
   color: white;
 }
 
@@ -17,3 +18,8 @@
   font-size: large;
 }
 
+.rest-tile {
+  border: 1px solid black;
+  width: 33%;
+  margin: 20px;
+}

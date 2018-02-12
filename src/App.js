@@ -21,7 +21,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <HomeContainer />
+        <HomeContainer restaurants={[{name: "Rosa Mexicano", address: "Columbus Circle"}, {name: "Zoma", address: "112 St."}, {name: "Community Food and Juice", address: "116 St, near Columbia"}]}/>
       </div>
     );
   }
