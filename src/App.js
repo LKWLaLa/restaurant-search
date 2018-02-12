@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
-import HomeContainer from './HomeContainer'
-require('dotenv').config()
+import {BrowserRouter} from 'react-router-dom';
+import HomeContainer from './HomeContainer';
+require('dotenv').config();
 const EatStreet = require('eatstreet');
 
 class App extends Component {
@@ -19,6 +20,7 @@ class App extends Component {
 
 
   render() {
+    console.log(BrowserRouter)
     return (
       <div className="App">
         <HomeContainer restaurants={[{name: "Rosa Mexicano", address: "Columbus Circle"}, {name: "Zoma", address: "112 St."}, {name: "Community Food and Juice", address: "116 St, near Columbia"}]}/>
