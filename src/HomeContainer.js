@@ -11,6 +11,7 @@ class HomeContainer extends Component {
         <header className="App-header">
           <h1 className="App-title">Restaurants</h1>
         </header>
+        <Search />
         <RestaurantsContainer restaurants={this.props.restaurants}/>
       </div>
     )
