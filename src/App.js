@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import RestaurantsContainer from './RestaurantsContainer'
+import HomeContainer from './HomeContainer'
 require('dotenv').config()
 const EatStreet = require('eatstreet');
 
@@ -21,10 +21,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <h1 className="App-title">Restaurants</h1>
-        </header>
-        <RestaurantsContainer restaurants={[1,2,3,4,5]}/>
+        <HomeContainer />
       </div>
     );
   }
