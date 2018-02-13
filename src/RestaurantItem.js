@@ -1,7 +1,7 @@
 import React from 'react';
 
 const RestaurantItem = (props) => {
- const {name, address} = props.restaurant
+ const {name, address, id} = props.restaurant
 
   return (
     <div>

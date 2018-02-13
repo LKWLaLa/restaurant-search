@@ -24,7 +24,7 @@ class App extends Component {
     return (
       <div className="App">
         <Switch>
-          <Route exact path= '/' render={(props)=><HomeContainer {...props} restaurants={[{name: "Rosa Mexicano", address: "Columbus Circle"}, {name: "Zoma", address: "112 St."}, {name: "Community Food and Juice", address: "116 St, near Columbia"}]}/> } />          
+          <Route exact path= '/' render={(props)=><HomeContainer {...props} restaurants={[{name: "Rosa Mexicano", address: "Columbus Circle", key: 1, id: 1}, {name: "Zoma", address: "112 St.", key: 2, id: 2}, {name: "Community Food and Juice", address: "116 St, near Columbia", key: 3, id: 3}]}/> } />          
           <Route exact path= '/restaurants/:id' render={(props)=><RestaurantMenu {...props} />} />
         </Switch>
       </div>

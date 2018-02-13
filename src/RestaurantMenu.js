@@ -2,7 +2,10 @@ import React from 'react';
 
 const RestaurantMenu = (props)=>{
   return(
-    <div>Hi, I'm eventually going to be a menu page!</div>
+    <div>
+      <h1>Hi, I'm eventually going to be a menu page!</h1>
+      <p> This is restaurant number: {props.match.params.id}</p>
+    </div>
   )
 }
 
