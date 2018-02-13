@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import { Switch, Route } from 'react-router-dom'
 import HomeContainer from './HomeContainer';
+import RestaurantMenu from './RestaurantMenu'
 require('dotenv').config();
 const EatStreet = require('eatstreet');
 
@@ -24,6 +25,7 @@ class App extends Component {
       <div className="App">
         <Switch>
           <Route exact path= '/' render={(props)=><HomeContainer {...props} restaurants={[{name: "Rosa Mexicano", address: "Columbus Circle"}, {name: "Zoma", address: "112 St."}, {name: "Community Food and Juice", address: "116 St, near Columbia"}]}/> } />          
+          <Route exact path= '/restaurants/:id' render={(props)=><RestaurantMenu {...props} />} />
         </Switch>
       </div>
     );
