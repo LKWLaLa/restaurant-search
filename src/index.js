@@ -11,7 +11,7 @@ import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 
 
-let store = createStore(RootReducer, {}, compose(
+let store = createStore(RootReducer, compose(
       applyMiddleware(thunk),
       window.devToolsExtension ? window.devToolsExtension() : f => f
     ));
