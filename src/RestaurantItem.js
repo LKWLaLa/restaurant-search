@@ -2,14 +2,15 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 
 const RestaurantItem = (props) => {
- const {name, address, id} = props.restaurant
+ const {name, streetAddress} = props.restaurant
+ console.log("RestItem props are " + props.restaurant)
 
   return (
     <div>
       <div className="rest-tile">
         <h2>{name}</h2>
-        <p>{address}</p>
-        <Link to={`restaurants/${id}`}>Click here for menu </Link>  
+        <p>{streetAddress}</p>
+        <Link to={`restaurants/${props.id}`}>Click here for menu </Link>  
       </div>
     </div>
     )

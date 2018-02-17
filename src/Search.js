@@ -12,7 +12,7 @@ class Search extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    alert(`You have searched for ${this.state.value}.`)
+    this.props.getRestaurants(this.state.value)
   }
 
   handleChange = (e) => {
