@@ -1,13 +1,14 @@
-const restaurantReducer = (state={restaurants: [], isFetching: 'false', menuItems: []}, action)=> {
-  console.log(action.type)
+const restaurantReducer = (state={restaurants: [], restaurantsFetching: 'false', 
+  menuSections: [], menuFetching: 'false'}, action)=> {
   switch (action.type){
     case 'REQUEST_RESTAURANTS':
-    console.log("this is happening")
-      return {...state, isFetching: 'true'}
+      return {...state, restaurantsFetching: 'true'}
     case 'RECEIVE_RESTAURANTS':
-      return {restaurants: [...action.payload], isFetching: 'false'}
+      return {...state, restaurants: [...action.payload], restaurantsFetching: 'false'}
+    case 'REQUEST_MENU':
+      return {...state, menuFetching: 'true'}
     case 'RECEIVE_MENU':
-      return {menuItems: [...action.payload]}
+      return {...state, menuSections: [...action.payload], menuFetching: 'false'}
     default:
       return state
   }

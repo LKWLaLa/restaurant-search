@@ -3,14 +3,12 @@ const EatStreet = require('eatstreet');
 const ES = new EatStreet(process.env.REACT_APP_ES_KEY);
 
 export const requestRestaurants = () => {
-  console.log("hitting the requestRestaurants action creator")
   return {
     type: 'REQUEST_RESTAURANTS'
   }
 }
 
 export const receiveRestaurants = (restaurants) => {
-  console.log("hitting the receiveRestaurants action creator")
   return {
     type: 'RECEIVE_RESTAURANTS',
     payload: restaurants
@@ -19,7 +17,7 @@ export const receiveRestaurants = (restaurants) => {
 
 export const getRestaurants = (location) => {
   return function(dispatch){
-    dispatch(requestRestaurants(location))
+    dispatch(requestRestaurants())
 
     ES.SearchRestaurants({address:location}, function(err, res){
       if(err){
@@ -31,16 +29,29 @@ export const getRestaurants = (location) => {
   }
 }
 
+export const requestMenu = () => {
+  return {
+    type: 'REQUEST_MENU'
+  }
+}
+
+export const receiveMenu = (menuSectionsArray) => {
+  return {
+    type: 'RECEIVE_MENU',
+    payload: menuSectionsArray
+  }
+}
+
 
 export const getMenu = (id) => {
   return function(dispatch){
+    dispatch(requestMenu());
+
     ES.RestaurantMenu({apiKey: id}, function(err, res){
     if(err){
-        console.log(err);
+      console.log(err);
     }
-    res.forEach(function(menuSection){
-            console.log(menuSection);
-        });
+    dispatch(receiveMenu(res))
     });
   }
 }
