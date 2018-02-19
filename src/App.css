@@ -27,3 +27,13 @@
 input {
   width: 20%;
 }
+
+.menu-section {
+  border: 1px solid black;
+  margin: 3%;
+  background: rgb(235, 237, 239);
+}
+
+.item {
+  border-bottom: 1px dashed black;
+}

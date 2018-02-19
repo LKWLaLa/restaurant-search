@@ -4,10 +4,7 @@ import {getMenu} from './actions/restaurantActions';
 import MenuSection from './MenuSection';
 
 class RestaurantMenuContainer extends Component {
-  constructor(props){
-    super(props);
-  }
-
+  
   componentDidMount(){
     this.props.getMenu(this.props.match.params.id)
   }
@@ -20,7 +17,7 @@ class RestaurantMenuContainer extends Component {
     return(
       <div>
         <h1>Hi, I'm a menu page!</h1>
-        <div>{renderMenuSections()}</div>
+        <section>{renderMenuSections()}</section>
       </div>
     )
   }
@@ -28,7 +25,7 @@ class RestaurantMenuContainer extends Component {
 }
 
 const mapStateToProps = (state) => {
-  return {sections: state.menuSections || []}
+  return {sections: state.menuSections}
 }
 
 const mapDispatchToProps = (dispatch) => {
