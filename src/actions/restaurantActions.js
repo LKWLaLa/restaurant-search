@@ -20,7 +20,6 @@ export const receiveRestaurants = (restaurants) => {
 export const getRestaurants = (location) => {
   return function(dispatch){
     dispatch(requestRestaurants(location))
-    console.log("The location is " + location)
 
     ES.SearchRestaurants({address:location}, function(err, res){
       if(err){
@@ -31,4 +30,20 @@ export const getRestaurants = (location) => {
     });
   }
 }
+
+
+export const getMenu = (id) => {
+  return function(dispatch){
+    ES.RestaurantMenu({apiKey: id}, function(err, res){
+    if(err){
+        console.log(err);
+    }
+    res.forEach(function(menuSection){
+            console.log(menuSection);
+        });
+    });
+  }
+}
+
+
 

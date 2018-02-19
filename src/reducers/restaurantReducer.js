@@ -1,4 +1,4 @@
-const restaurantReducer = (state={restaurants: [], isFetching: 'false'}, action)=> {
+const restaurantReducer = (state={restaurants: [], isFetching: 'false', menuItems: []}, action)=> {
   console.log(action.type)
   switch (action.type){
     case 'REQUEST_RESTAURANTS':
@@ -6,6 +6,8 @@ const restaurantReducer = (state={restaurants: [], isFetching: 'false'}, action)
       return {...state, isFetching: 'true'}
     case 'RECEIVE_RESTAURANTS':
       return {restaurants: [...action.payload], isFetching: 'false'}
+    case 'RECEIVE_MENU':
+      return {menuItems: [...action.payload]}
     default:
       return state
   }
