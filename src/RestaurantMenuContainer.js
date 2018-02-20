@@ -7,7 +7,7 @@ import spinner from './assets/spinner.gif';
 class RestaurantMenuContainer extends Component {
   
   componentDidMount(){
-    this.props.getMenu(this.props.match.params.id)
+    this.props.getMenu(this.props.currentRestaurant.apiKey)
   }
 
   render(){
