@@ -37,3 +37,7 @@ input {
 .item {
   border-bottom: 1px dashed black;
 }
+
+.spinner {
+  margin: 5%;
+}

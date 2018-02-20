@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import RestaurantsContainer from './RestaurantsContainer';
 import Search from './Search';
 import {getRestaurants} from './actions/restaurantActions';
+import spinner from './assets/spinner.gif';
 
 
 class HomeContainer extends Component {
@@ -14,7 +15,10 @@ class HomeContainer extends Component {
           <h1 className="App-title">Restaurants</h1>
         </header>
         <Search getRestaurants={this.props.getRestaurants}/>
-        <RestaurantsContainer restaurants={this.props.restaurants}/>
+        {this.props.restaurantsFetching ? 
+           <img className="spinner" src={spinner} alt="loading spinner" /> :
+          <RestaurantsContainer restaurants={this.props.restaurants}/>
+        }        
       </div>
     )
   }
@@ -23,7 +27,8 @@ class HomeContainer extends Component {
 const mapStateToProps = (state) => {
   console.log(state)
   return {
-    restaurants: state.restaurants
+    restaurants: state.restaurants,
+    restaurantsFetching: state.restaurantsFetching
   }
 }
 
