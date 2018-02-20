@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {getMenu} from './actions/restaurantActions';
 import MenuSection from './MenuSection';
+import spinner from './assets/spinner.gif';
 
 class RestaurantMenuContainer extends Component {
   
@@ -16,8 +17,8 @@ class RestaurantMenuContainer extends Component {
 
     return(
       <div>
-        <h1>Hi, I'm a menu page!</h1>
-        <section>{renderMenuSections()}</section>
+        {this.props.menuFetching? <img className="spinner" src={spinner} alt=" loading spinner" /> :
+        <section>{renderMenuSections()}</section> }
       </div>
     )
   }
@@ -25,7 +26,8 @@ class RestaurantMenuContainer extends Component {
 }
 
 const mapStateToProps = (state) => {
-  return {sections: state.menuSections}
+  return {sections: state.menuSections,
+    menuFetching: state.menuFetching}
 }
 
 const mapDispatchToProps = (dispatch) => {
@@ -35,3 +37,4 @@ const mapDispatchToProps = (dispatch) => {
 
 
 export default connect(mapStateToProps, mapDispatchToProps)(RestaurantMenuContainer);
+
