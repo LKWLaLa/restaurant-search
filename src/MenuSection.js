@@ -5,7 +5,7 @@ const MenuSection = (props) => {
   let {name, items} = props.section 
 
   const renderItems = () => {
-    return items.map(item => <MenuItem item={item} />)
+    return items.map(item => <MenuItem key={item.apiKey} item={item} />)
   }
 
   return (
