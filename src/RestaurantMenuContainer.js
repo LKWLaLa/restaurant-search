@@ -17,6 +17,7 @@ class RestaurantMenuContainer extends Component {
 
     return(
       <div>
+        <h1>{this.props.currentRestaurant.name || "Menu"}</h1>
         {this.props.menuFetching? <img className="spinner" src={spinner} alt=" loading spinner" /> :
         <section>{renderMenuSections()}</section> }
       </div>
@@ -27,7 +28,8 @@ class RestaurantMenuContainer extends Component {
 
 const mapStateToProps = (state) => {
   return {sections: state.menuSections,
-    menuFetching: state.menuFetching}
+    menuFetching: state.menuFetching,
+    currentRestaurant: state.currentRestaurant}
 }
 
 const mapDispatchToProps = (dispatch) => {

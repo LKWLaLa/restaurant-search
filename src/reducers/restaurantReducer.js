@@ -9,6 +9,8 @@ const restaurantReducer = (state={restaurants: [], restaurantsFetching: false,
       return {...state, menuFetching: true}
     case 'RECEIVE_MENU':
       return {...state, menuSections: [...action.payload], menuFetching: false}
+    case 'SELECT_CURRENT_RESTAURANT':
+      return {...state, currentRestaurant: action.payload}
     default:
       return state
   }
