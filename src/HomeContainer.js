@@ -9,6 +9,7 @@ import spinner from './assets/spinner.gif';
 class HomeContainer extends Component {
 
   render(){
+    let locationNotice = this.props.location ? (<h4>Showing restaurants in: {this.props.location}</h4>) : null
     return (
       <div>
         <header className="App-header">
@@ -17,7 +18,7 @@ class HomeContainer extends Component {
         <Search getRestaurants={this.props.getRestaurants}/>
         {this.props.restaurantsFetching ? 
            <img className="spinner" src={spinner} alt="loading spinner" /> :
-          <RestaurantsContainer restaurants={this.props.restaurants}/>
+           [locationNotice, <RestaurantsContainer restaurants={this.props.restaurants}/>]
         }        
       </div>
     )
@@ -28,7 +29,8 @@ const mapStateToProps = (state) => {
   console.log(state)
   return {
     restaurants: state.restaurants,
-    restaurantsFetching: state.restaurantsFetching
+    restaurantsFetching: state.restaurantsFetching,
+    location: state.location
   }
 }
 

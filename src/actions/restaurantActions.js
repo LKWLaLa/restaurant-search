@@ -2,9 +2,10 @@
 const EatStreet = require('eatstreet');
 const ES = new EatStreet(process.env.REACT_APP_ES_KEY);
 
-export const requestRestaurants = () => {
+export const requestRestaurants = (location) => {
   return {
-    type: 'REQUEST_RESTAURANTS'
+    type: 'REQUEST_RESTAURANTS',
+    payload: location
   }
 }
 
@@ -17,7 +18,7 @@ export const receiveRestaurants = (restaurants) => {
 
 export const getRestaurants = (location) => {
   return function(dispatch){
-    dispatch(requestRestaurants())
+    dispatch(requestRestaurants(location))
 
     ES.SearchRestaurants({address:location}, function(err, res){
       if(err){
