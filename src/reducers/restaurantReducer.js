@@ -11,6 +11,9 @@ const restaurantReducer = (state={restaurants: [], restaurantsFetching: false,
       return {...state, menuSections: [...action.payload], menuFetching: false}
     case 'SELECT_CURRENT_RESTAURANT':
       return {...state, currentRestaurant: action.payload}
+    case 'FILTER_RESTAURANTS':
+      console.log(action.payload)
+      return state
     default:
       return state
   }

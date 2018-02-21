@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import RestaurantsContainer from './RestaurantsContainer';
 import Search from './Search';
+import AllergyFilter from './AllergyFilter';
 import {getRestaurants} from './actions/restaurantActions';
 import spinner from './assets/spinner.gif';
 
@@ -16,6 +17,7 @@ class HomeContainer extends Component {
           <h1 className="App-title">Restaurants</h1>
         </header>
         <Search getRestaurants={this.props.getRestaurants}/>
+        <AllergyFilter />
         {this.props.restaurantsFetching ? 
            <img className="spinner" src={spinner} alt="loading spinner" /> :
            [locationNotice, <RestaurantsContainer restaurants={this.props.restaurants}/>]

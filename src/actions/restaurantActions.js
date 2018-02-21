@@ -64,5 +64,21 @@ export const selectCurrentRestaurant = (restaurant) => {
   }
 }
 
+export const filterRestaurants = (conditionsArray) => {
+  const varietiesOf = {
+    nuts: 'nut|almond|cashew|macadamia|pecan|pigñolia|pistachio|praline|pesto|filbert',
+    shellfish: 'shrimp|clam|mussel|lobster|crab|prawn'
+  }
+
+  let regexArray = conditionsArray.map(condition => new RegExp(varietiesOf[condition]))
+
+  return {
+    type: 'FILTER_RESTAURANTS',
+    payload: regexArray
+  }
+
+
+}
+
 
 
