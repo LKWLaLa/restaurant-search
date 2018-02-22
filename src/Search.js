@@ -23,7 +23,7 @@ class Search extends Component {
     return(
       <div>
         <form onSubmit={this.handleSubmit}>
-          <input value={this.state.value} 
+          <input className="search" value={this.state.value} 
                  onChange={this.handleChange} 
                  placeholder="Enter city or zipcode to search for restaurants" />
         </form>

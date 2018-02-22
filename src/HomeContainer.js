@@ -10,7 +10,7 @@ import spinner from './assets/spinner.gif';
 class HomeContainer extends Component {
 
   render(){
-    let locationNotice = this.props.location ? (<h4>Showing restaurants in: {this.props.location}</h4>) : null
+    let locationNotice = this.props.location ? <h4>Showing results in: {this.props.location}</h4> : null
     return (
       <div>
         <header className="App-header">
