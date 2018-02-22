@@ -57,12 +57,6 @@ export const getMenu = (id) => {
   }
 }
 
-export const selectCurrentRestaurant = (restaurant) => {
-  return {
-    type: 'SELECT_CURRENT_RESTAURANT',
-    payload: restaurant
-  }
-}
 
 export const filterRestaurants = (conditionsArray) => {
   const varietiesOf = {

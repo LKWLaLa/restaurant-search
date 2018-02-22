@@ -7,7 +7,7 @@ import spinner from './assets/spinner.gif';
 class RestaurantMenuContainer extends Component {
   
   componentDidMount(){
-    this.props.getMenu(this.props.currentRestaurant.apiKey)
+    this.props.getMenu(this.props.match.params.id)
   }
 
   render(){
@@ -17,7 +17,7 @@ class RestaurantMenuContainer extends Component {
 
     return(
       <div>
-        <h1>{this.props.currentRestaurant.name || "Menu"}</h1>
+        <h1>Menu</h1>
         {this.props.menuFetching? <img className="spinner" src={spinner} alt=" loading spinner" /> :
         <section>{renderMenuSections()}</section> }
       </div>
@@ -28,8 +28,8 @@ class RestaurantMenuContainer extends Component {
 
 const mapStateToProps = (state) => {
   return {sections: state.menuSections,
-    menuFetching: state.menuFetching,
-    currentRestaurant: state.currentRestaurant}
+    menuFetching: state.menuFetching
+  }
 }
 
 const mapDispatchToProps = (dispatch) => {
