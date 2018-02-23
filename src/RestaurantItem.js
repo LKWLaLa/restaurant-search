@@ -8,8 +8,8 @@ const RestaurantItem = (props) => {
  //const toSlug = (str) => str.replace(/\s+/g, '-').toLowerCase();
 
   return (
-    <div>
-      <div className="rest-tile">
+    <div className="rest-tile">
+      <div>
         <h2>{name}</h2>
         <p>{streetAddress}</p>
         <Link to={`restaurants/${props.id}`}>Click here for menu </Link>  

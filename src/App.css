@@ -20,8 +20,9 @@
 
 .rest-tile {
   border: 1px solid black;
-  width: 33%;
+  width: 30%;
   margin: 20px;
+  display: inline-block;
 }
 
 input.search {
