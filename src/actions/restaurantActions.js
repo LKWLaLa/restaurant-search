@@ -25,10 +25,42 @@ export const getRestaurants = (location) => {
           console.log(err);
       }
       let restaurantArray = res.restaurants.map(rest => rest)
+      let apiKeysArray = res.restaurants.map(rest => rest.apiKey)
       dispatch(receiveRestaurants(restaurantArray))
+      dispatch(getAllMenus(apiKeysArray))
     });
   }
 }
+
+
+export const getAllMenus = (apiKeysArray) => {
+  return function(dispatch){
+    let menusArray = [];
+
+    apiKeysArray.forEach((key, index) => {
+        return setTimeout(function(){
+          ES.RestaurantMenu({apiKey: key}, function(err, res){
+            console.log("making a call")
+            if(err){
+              alert(err)
+            }
+            else{ 
+              menusArray.push(res)
+            }
+          })            
+        }, index * 100);
+    });
+    dispatch(addAllMenus(menusArray))
+  }
+}
+
+export const addAllMenus = (menusArray) => {
+  return {
+    type: 'ADD_ALL_MENUS',
+    payload: menusArray
+  }
+}
+
 
 export const requestMenu = () => {
   return {

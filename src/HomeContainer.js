@@ -28,7 +28,6 @@ class HomeContainer extends Component {
 }
 
 const mapStateToProps = (state) => {
-  console.log(state)
   return {
     restaurants: state.restaurants,
     restaurantsFetching: state.restaurantsFetching,

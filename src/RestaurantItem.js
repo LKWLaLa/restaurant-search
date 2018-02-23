@@ -5,14 +5,14 @@ import {connect} from 'react-redux';
 const RestaurantItem = (props) => {
  const {name, streetAddress} = props.restaurant
 
- const toSlug = (str) => str.replace(/\s+/g, '-').toLowerCase();
+ //const toSlug = (str) => str.replace(/\s+/g, '-').toLowerCase();
 
   return (
     <div>
       <div className="rest-tile">
         <h2>{name}</h2>
         <p>{streetAddress}</p>
-        <Link to={`restaurants/${toSlug(name)}`}>Click here for menu </Link>  
+        <Link to={`restaurants/${props.id}`}>Click here for menu </Link>  
       </div>
     </div>
     )
