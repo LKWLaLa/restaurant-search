@@ -96,7 +96,7 @@ export const filterRestaurants = (conditionsArray) => {
     shellfish: 'shrimp|clam|mussel|lobster|crab|prawn'
   }
 
-  let regexArray = conditionsArray.map(condition => new RegExp(varietiesOf[condition]))
+  let regexArray = conditionsArray.map(condition => new RegExp(varietiesOf[condition]), 'g')
 
   return {
     type: 'FILTER_RESTAURANTS',
