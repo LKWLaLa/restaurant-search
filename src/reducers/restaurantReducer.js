@@ -1,4 +1,4 @@
-const restaurantReducer = (state={restaurants: [], restaurantsFetching: false, 
+const restaurantReducer = (state={restaurants: [], filteredRestaurants: false, restaurantsFetching: false, 
   allMenus: [], menuSections: [], menuFetching: false}, action)=> {
   switch (action.type){
     case 'REQUEST_RESTAURANTS':
@@ -13,7 +13,6 @@ const restaurantReducer = (state={restaurants: [], restaurantsFetching: false,
       return {...state, menuSections: [...action.payload], menuFetching: false}
     case 'FILTER_RESTAURANTS':
 
-
     let sectionIsSafe = (section) => {
       return section.items.every(item => item.name.toLowerCase().search(action.payload[0]) === -1)
     }
@@ -26,9 +25,16 @@ const restaurantReducer = (state={restaurants: [], restaurantsFetching: false,
       }
     }
 
-    let safeMenuArray = state.allMenus.filter(menuIsSafe)
-    console.log(safeMenuArray)
-    return state
+    if(action.payload.length > 0){
+      let safeMenuArray = state.allMenus.filter(menuIsSafe)
+      let safeMenuApiKeys = safeMenuArray.map(menu => Object.keys(menu)[0])
+      let safeRestaurants = safeMenuApiKeys.map((apiKey)=>{
+        return state.restaurants.find(res => res.apiKey === apiKey)
+      })
+
+      return {...state, filteredRestaurants: [...safeRestaurants]}
+     }
+     return {...state, filteredRestaurants: false} 
 
     default:
       return state
