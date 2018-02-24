@@ -45,7 +45,7 @@ export const getAllMenus = (apiKeysArray) => {
               alert(err)
             }
             else{ 
-              menusArray.push(res)
+              menusArray.push({[key]:res})
             }
           })            
         }, index * 100);
