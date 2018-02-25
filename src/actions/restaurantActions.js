@@ -38,14 +38,14 @@ export const getAllMenus = (apiKeysArray) => {
     let menusArray = [];
 
     apiKeysArray.forEach((key, index) => {
-        return setTimeout(function(){
+        setTimeout(function(){
           ES.RestaurantMenu({apiKey: key}, function(err, res){
             console.log("making a call")
             if(err){
               alert(err)
             }
             else{ 
-              menusArray.push({[key]:res})
+              menusArray.push({apiKey:key, sections:res})
             }
           })            
         }, index * 100);

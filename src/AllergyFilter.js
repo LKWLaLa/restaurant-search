@@ -32,7 +32,6 @@ class AllergyFilter extends Component{
   }
 
   render(){
-    console.log(this.state)
     return(
       <div>
         <input id="nuts" type="checkbox" value="nuts" onChange={this.handleChange} />
