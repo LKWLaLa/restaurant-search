@@ -15,7 +15,9 @@ const restaurantReducer = (state={restaurants: [], filteredRestaurants: false, r
 
       let sectionIsSafe = (section, conditions) => {
         return conditions.every(condition => {
-          return section.items.every(item => item.name.toLowerCase().search(condition) === -1)
+          return section.items.every(item => {
+            return (item.name.toLowerCase().search(condition) === -1) && (item.description ? item.description.toLowerCase().search(condition) === -1 : true)
+          })
         })
       }
 
