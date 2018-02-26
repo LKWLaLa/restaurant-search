@@ -18,11 +18,9 @@ const restaurantReducer = (state={restaurants: [], filteredRestaurants: false, r
       }
 
       let menuIsSafe = (menu) => {
-        for(let key in menu){
           let sections = menu.sections;
           let menuVerdict = sections.every(section => sectionIsSafe(section))
           return menuVerdict
-        }
       }
 
       if(action.payload.length > 0){
@@ -32,7 +30,7 @@ const restaurantReducer = (state={restaurants: [], filteredRestaurants: false, r
           return state.restaurants.find(rest => rest.apiKey === apiKey)
         })
 
-        return {...state, filteredRestaurants: [...safeRestaurants]}
+        return {...state, filteredRestaurants: safeRestaurants}
      }
      return {...state, filteredRestaurants: false} 
 
