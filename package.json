@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "cross-fetch": "^1.1.1",
     "dotenv": "^5.0.0",
     "eatstreet": "^0.0.2",
     "react": "^16.2.0",

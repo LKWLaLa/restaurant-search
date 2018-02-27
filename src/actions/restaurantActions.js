@@ -1,4 +1,3 @@
-//import fetch from 'cross-fetch';
 const EatStreet = require('eatstreet');
 const ES = new EatStreet(process.env.REACT_APP_ES_KEY);
 
