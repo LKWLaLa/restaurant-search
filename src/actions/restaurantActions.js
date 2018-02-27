@@ -24,33 +24,33 @@ export const getRestaurants = (location) => {
       if(err){
           console.log(err);
       }
-      let restaurantArray = res.restaurants.map(rest => rest)
-      let apiKeysArray = res.restaurants.map(rest => rest.apiKey)
-      dispatch(receiveRestaurants(restaurantArray))
-      dispatch(getAllMenus(apiKeysArray))
+      let restaurantArray = res.restaurants
+      let apiKeysArray = restaurantArray.map(rest => rest.apiKey)
+
+      dispatch(getAllMenus(apiKeysArray, restaurantArray))
     });
   }
 }
 
 
-export const getAllMenus = (apiKeysArray) => {
+export const getAllMenus = (apiKeysArray, restaurantArray) => {
   return function(dispatch){
-    let menusArray = [];
-
+    let promises = [];
     apiKeysArray.forEach((key, index) => {
-        setTimeout(function(){
-          ES.RestaurantMenu({apiKey: key}, function(err, res){
-            console.log("making a call")
-            if(err){
-              alert(err)
-            }
-            else{ 
-              menusArray.push({apiKey:key, sections:res})
-            }
-          })            
-        }, index * 100);
+      promises.push(
+        new Promise ((resolve, reject) => {
+          setTimeout(function(){
+            resolve(ES.RestaurantMenu({apiKey: key}, function(err, res){            
+              let matchingRestaurant = restaurantArray.find(rest => rest.apiKey === key)
+              matchingRestaurant.menu = res            
+            }))            
+          }, index * 100);
+        })
+      )
     });
-    dispatch(addAllMenus(menusArray))
+    Promise.all(promises).then(() => 
+    dispatch(receiveRestaurants(restaurantArray))
+    );
   }
 }
 
