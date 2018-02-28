@@ -39,10 +39,11 @@ export const getAllMenus = (apiKeysArray, restaurantArray) => {
       promises.push(
         new Promise ((resolve, reject) => {
           setTimeout(function(){
-            resolve(ES.RestaurantMenu({apiKey: key}, function(err, res){            
+            ES.RestaurantMenu({apiKey: key}, function(err, res){            
               let matchingRestaurant = restaurantArray.find(rest => rest.apiKey === key)
-              matchingRestaurant.menu = res            
-            }))            
+              matchingRestaurant.menu = res  
+              resolve()          
+            })            
           }, index * 100);
         })
       )
