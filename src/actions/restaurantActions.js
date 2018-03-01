@@ -33,26 +33,44 @@ export const getRestaurants = (location) => {
 
 
 export const getAllMenus = (apiKeysArray, restaurantArray) => {
-  return function(dispatch){
-    let promises = [];
-    apiKeysArray.forEach((key, index) => {
-      promises.push(
-        new Promise ((resolve, reject) => {
-          setTimeout(function(){
-            ES.RestaurantMenu({apiKey: key}, function(err, res){            
-              let matchingRestaurant = restaurantArray.find(rest => rest.apiKey === key)
-              matchingRestaurant.menu = res  
-              resolve()          
-            })            
-          }, index * 100);
-        })
-      )
+  return function(dispatch){  
+    let counter = 0 
+    apiKeysArray.forEach((key, index) => {         
+      setTimeout(function(){
+        ES.RestaurantMenu({apiKey: key}, function(err, res){            
+          let matchingRestaurant = restaurantArray.find(rest => rest.apiKey === key)
+          matchingRestaurant.menu = res  
+          counter++    
+          if(counter === apiKeysArray.length){
+            dispatch(receiveRestaurants(restaurantArray))
+          }    
+        })            
+      }, index * 100);      
     });
-    Promise.all(promises).then(() => 
-    dispatch(receiveRestaurants(restaurantArray))
-    );
   }
 }
+
+// export const getAllMenus = (apiKeysArray, restaurantArray) => {
+//   return function(dispatch){
+//     let promises = [];
+//     apiKeysArray.forEach((key, index) => {
+//       promises.push(
+//         new Promise ((resolve, reject) => {
+//           setTimeout(function(){
+//             ES.RestaurantMenu({apiKey: key}, function(err, res){            
+//               let matchingRestaurant = restaurantArray.find(rest => rest.apiKey === key)
+//               matchingRestaurant.menu = res  
+//               resolve()          
+//             })            
+//           }, index * 100);
+//         })
+//       )
+//     });
+//     Promise.all(promises).then(() => 
+//     dispatch(receiveRestaurants(restaurantArray))
+//     );
+//   }
+// }
 
 export const addAllMenus = (menusArray) => {
   return {
