@@ -13,14 +13,14 @@ const restaurantReducer = (state={restaurants: [], filteredRestaurants: false, r
 
       let conditionsArray = action.payload
 
-      let conditionIsMet = function(condition){
-        return this.items.every(item => {
+      let conditionIsMet = function(condition, section){
+        return section.items.every(item => {
           return (item.name.toLowerCase().search(condition) === -1) && (item.description ? item.description.toLowerCase().search(condition) === -1 : true)
         })
       }
 
       let sectionIsSafe = (section, conditionsArray) => {
-        return conditionsArray.every(conditionIsMet.bind(section)) 
+        return conditionsArray.every(condition => conditionIsMet(condition, section)) 
       }
 
       let menuIsSafe = (restaurant) => {
