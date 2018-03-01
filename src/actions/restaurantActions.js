@@ -120,8 +120,13 @@ export const filterRestaurants = (conditionsArray) => {
     type: 'FILTER_RESTAURANTS',
     payload: regexArray
   }
+}
 
-
+export const updateFilterCheckboxes = (term) => {
+  return {
+    type: 'UPDATE_FILTER_CHECKBOXES',
+    payload: term
+  }
 }
 
 

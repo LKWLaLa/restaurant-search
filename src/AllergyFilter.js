@@ -1,22 +1,14 @@
 import React, {Component} from 'react';
 import {filterRestaurants} from './actions/restaurantActions';
 import {connect} from 'react-redux';
+import {updateFilterCheckboxes} from './actions/restaurantActions';
 
 class AllergyFilter extends Component{
-  constructor(props){
-    super(props)
-
-    this.state = {
-      nuts: false,
-      shellfish: false
-    }
-  }
-
 
   componentDidUpdate(){
     let conditionsArray = [];
-    for (let item in this.state) {
-      if (this.state[item] === true){
+    for (let item in this.props.checkboxes) {
+      if (this.props.checkboxes[item] === true){
         conditionsArray.push(item)
       }
     }
@@ -26,27 +18,34 @@ class AllergyFilter extends Component{
 
   handleChange = (e) => {  
     let term = e.target.value  
-    this.setState((prevState) => { 
-      return {[term]: !prevState[term]} 
-    })
+    this.props.updateCheckboxes(term)
   }
 
   render(){
     return(
       <div>
-        <input id="nuts" type="checkbox" value="nuts" onChange={this.handleChange} />
+        <input id="nuts" type="checkbox" value="nuts" 
+          checked={this.props.checkboxes.nuts} onChange={this.handleChange} />
         <label htmlFor="nuts">Nuts</label>
-        <input id="shellfish" type="checkbox" value="shellfish" onChange={this.handleChange} />
+        <input id="shellfish" type="checkbox" value="shellfish" 
+          checked={this.props.checkboxes.shellfish} onChange={this.handleChange} />
          <label htmlFor="shellfish">Shellfish</label>
       </div>
     )
   }
 }
 
+const mapStateToProps = (state) => {
+  return {
+    checkboxes: state.checkboxes
+  }
+}
+
 const mapDispatchToProps = (dispatch) => {
   return {
-    filterRestaurants: (conditionsArray) => {dispatch(filterRestaurants(conditionsArray))}
+    filterRestaurants: (conditionsArray) => dispatch(filterRestaurants(conditionsArray)),
+    updateCheckboxes: (term) => dispatch(updateFilterCheckboxes(term))
   }
 } 
 
-export default connect(null, mapDispatchToProps)(AllergyFilter);
+export default connect(mapStateToProps, mapDispatchToProps)(AllergyFilter);
