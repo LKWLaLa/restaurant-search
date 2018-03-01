@@ -13,7 +13,7 @@ const restaurantReducer = (state={restaurants: [], filteredRestaurants: false, r
 
       let conditionsArray = action.payload
 
-      let conditionIsMet = function(condition, section){
+      let conditionIsMet = (condition, section) => {
         return section.items.every(item => {
           return (item.name.toLowerCase().search(condition) === -1) && (item.description ? item.description.toLowerCase().search(condition) === -1 : true)
         })
