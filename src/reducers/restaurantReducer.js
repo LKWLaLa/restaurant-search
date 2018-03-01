@@ -11,23 +11,25 @@ const restaurantReducer = (state={restaurants: [], filteredRestaurants: false, r
       return {...state, menuSections: [...action.payload], menuFetching: false}
     case 'FILTER_RESTAURANTS':
 
-      let conditions = action.payload
+      let conditionsArray = action.payload
 
-      let sectionIsSafe = (section, conditions) => {
-        return conditions.every(condition => {
-          return section.items.every(item => {
-            return (item.name.toLowerCase().search(condition) === -1) && (item.description ? item.description.toLowerCase().search(condition) === -1 : true)
-          })
+      let conditionIsMet = function(condition){
+        return this.items.every(item => {
+          return (item.name.toLowerCase().search(condition) === -1) && (item.description ? item.description.toLowerCase().search(condition) === -1 : true)
         })
+      }
+
+      let sectionIsSafe = (section, conditionsArray) => {
+        return conditionsArray.every(conditionIsMet.bind(section)) 
       }
 
       let menuIsSafe = (restaurant) => {
           let menuSections = restaurant.menu;
-          let menuVerdict = menuSections.every(section => sectionIsSafe(section, conditions))
+          let menuVerdict = menuSections.every(section => sectionIsSafe(section, conditionsArray))
           return menuVerdict
       }
 
-      if(conditions.length > 0){
+      if(conditionsArray.length > 0){
         let safeRestaurants = state.restaurants.filter(menuIsSafe)
         return {...state, filteredRestaurants: safeRestaurants}
       }
