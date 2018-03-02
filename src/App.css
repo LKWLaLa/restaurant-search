@@ -27,6 +27,7 @@
 
 input.search {
   width: 20%;
+  margin: 1%;
 }
 
 .menu-section {
@@ -41,4 +42,20 @@ input.search {
 
 .spinner {
   margin: 100px;
+}
+
+.nuts-img {
+  height: 4.5%;
+  width: 4.5%;
+  margin: .5%;
+  padding: 1%;
+  border: 2px solid black;
+}
+
+.shellfish-img {
+  height: 4.5%;
+  width: 4.5%;
+  margin: .5%;
+  padding: 1%;
+  border: 2px solid black;
 }

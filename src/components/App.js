@@ -1,9 +1,10 @@
-import React, { Component } from 'react';
-import '../App.css';
-import { Switch, Route } from 'react-router-dom';
-import HomeContainer from './HomeContainer';
+import React, { Component } from 'react'
+import '../App.css'
+import { Switch, Route } from 'react-router-dom'
+import HomeContainer from './HomeContainer'
 import MenuContainer from './MenuContainer'
-require('dotenv').config();
+import 'font-awesome/css/font-awesome.min.css'
+require('dotenv').config()
 
 
 class App extends Component {

@@ -1,6 +1,9 @@
 import React, {Component} from 'react';
 import {filterRestaurants, updateFilterCheckboxes} from '../actions/restaurantActions';
 import {connect} from 'react-redux';
+import nuts from '../assets/peanuts.svg';
+import shellfish from '../assets/shrimp.svg';
+
 
 class AllergyFilter extends Component{
 
@@ -26,9 +29,12 @@ class AllergyFilter extends Component{
         <input id="nuts" type="checkbox" value="nuts" 
           checked={this.props.checkboxes.nuts} onChange={this.handleChange} />
         <label htmlFor="nuts">Nuts</label>
+        <img className="nuts-img" src={nuts} alt="nuts image" />
+        <img className="shellfish-img" src={shellfish} alt="shellfish image" />
         <input id="shellfish" type="checkbox" value="shellfish" 
           checked={this.props.checkboxes.shellfish} onChange={this.handleChange} />
          <label htmlFor="shellfish">Shellfish</label>
+
       </div>
     )
   }
