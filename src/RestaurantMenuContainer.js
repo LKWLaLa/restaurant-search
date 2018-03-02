@@ -12,14 +12,38 @@ class RestaurantMenuContainer extends Component {
 
   render(){
     let renderMenuSections = () => {
-      return this.props.sections.map(section => <MenuSection key={section.apiKey} section={section} />)
-    }
+      return this.props.sections.map(
+        section => <MenuSection key={section.apiKey} section={section} />
+    )}
+
+    let menuInfo = ()=> {
+      if (this.props.restaurant){
+        let restaurant = this.props.restaurant
+        let hours = []
+        for(let day in restaurant.hours){
+          hours.push(<div>{day}: {restaurant.hours[day][0]}</div>)
+        }
+        return( 
+          <div>
+            <h1>{restaurant.name}</h1>       
+            <p>{restaurant.streetAddress}</p>
+            <p>{restaurant.phone}</p>
+            <div>
+              <h2>Hours: </h2>
+              {hours}
+            </div>
+          </div>
+        ) 
+      }
+    return(<h1>Menu</h1>)
+  }
 
     return(
       <div>
-        <h1>{this.props.restaurant ? this.props.restaurant.name : 'Menu'}</h1>
-        {this.props.menuFetching? <img className="spinner" src={spinner} alt=" loading spinner" /> :
-        <section>{renderMenuSections()}</section> }
+        {menuInfo()}
+        {this.props.menuFetching ? 
+          <img className="spinner" src={spinner} alt=" loading spinner" /> :
+          <section>{renderMenuSections()}</section> }
       </div>
     )
   }
