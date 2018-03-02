@@ -3,8 +3,8 @@ import {connect} from 'react-redux';
 import RestaurantsContainer from './RestaurantsContainer';
 import Search from './Search';
 import AllergyFilter from './AllergyFilter';
-import {getRestaurants} from './actions/restaurantActions';
-import spinner from './assets/spinner.gif';
+import {getRestaurants} from '../actions/restaurantActions';
+import spinner from '../assets/spinner.gif';
 
 
 class HomeContainer extends Component {

@@ -1,11 +1,8 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import {connect} from 'react-redux';
 
 const RestaurantItem = (props) => {
  const {name, streetAddress} = props.restaurant
-
- //const toSlug = (str) => str.replace(/\s+/g, '-').toLowerCase();
 
   return (
     <div className="rest-tile">
@@ -18,9 +15,4 @@ const RestaurantItem = (props) => {
     )
 }
 
-const mapDispatchToProps = (dispatch) => {
-  return {}
-}
-
-
-export default connect(null, mapDispatchToProps)(RestaurantItem);
+export default RestaurantItem;

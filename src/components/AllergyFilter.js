@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
-import {filterRestaurants} from './actions/restaurantActions';
+import {filterRestaurants, updateFilterCheckboxes} from '../actions/restaurantActions';
 import {connect} from 'react-redux';
-import {updateFilterCheckboxes} from './actions/restaurantActions';
 
 class AllergyFilter extends Component{
 
