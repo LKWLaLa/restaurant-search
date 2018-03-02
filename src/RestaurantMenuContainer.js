@@ -17,7 +17,7 @@ class RestaurantMenuContainer extends Component {
 
     return(
       <div>
-        <h1>Menu</h1>
+        <h1>{this.props.restaurant ? this.props.restaurant.name : 'Menu'}</h1>
         {this.props.menuFetching? <img className="spinner" src={spinner} alt=" loading spinner" /> :
         <section>{renderMenuSections()}</section> }
       </div>
@@ -26,9 +26,11 @@ class RestaurantMenuContainer extends Component {
   
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, ownProps) => {
+  console.log(ownProps)
   return {sections: state.menuSections,
-    menuFetching: state.menuFetching
+    menuFetching: state.menuFetching,
+    restaurant: state.restaurants.filter(rest => rest.apiKey == ownProps.match.params.id)[0]
   }
 }
 
