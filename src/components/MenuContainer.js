@@ -4,7 +4,7 @@ import {getMenu} from '../actions/restaurantActions';
 import MenuSection from './MenuSection';
 import spinner from '../assets/spinner.gif';
 
-class RestaurantMenuContainer extends Component {
+class MenuContainer extends Component {
   
   componentDidMount(){
     this.props.getMenu(this.props.match.params.id)
@@ -64,5 +64,5 @@ const mapDispatchToProps = (dispatch) => {
 
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(RestaurantMenuContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(MenuContainer);
 
