@@ -44,7 +44,7 @@ input.search {
   margin: 100px;
 }
 
-.nuts-img {
+.allergen-img {
   height: 4.5%;
   width: 4.5%;
   margin: .5%;
@@ -52,14 +52,16 @@ input.search {
   border: 2px solid black;
 }
 
-.shellfish-img {
-  height: 4.5%;
-  width: 4.5%;
-  margin: .5%;
-  padding: 1%;
-  border: 2px solid black;
+input[type="checkbox"], .checked {
+    display: none;
 }
 
-input[type="checkbox"]{
+input[type="checkbox"]:checked ~ .checked
+{
+    display: inline-block;
+}
+
+input[type="checkbox"]:checked ~ .unchecked
+{
     display: none;
 }
