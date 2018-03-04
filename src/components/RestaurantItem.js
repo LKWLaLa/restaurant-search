@@ -2,11 +2,12 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 
 const RestaurantItem = (props) => {
- const {name, streetAddress} = props.restaurant
+ const {name, streetAddress, logoUrl} = props.restaurant
 
   return (
     <div className="rest-tile">
-      <div>
+      <img className="rest-icon" src={logoUrl} alt-text="restaurant icon" /> 
+      <div className="rest-text">
         <h2>{name}</h2>
         <p>{streetAddress}</p>
         <Link to={`restaurants/${props.id}`}>Click here for menu </Link>  

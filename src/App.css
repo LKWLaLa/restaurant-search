@@ -18,13 +18,6 @@
   font-size: large;
 }
 
-.rest-tile {
-  border: 1px solid black;
-  width: 30%;
-  margin: 20px;
-  display: inline-block;
-}
-
 input.search {
   width: 20%;
   margin: 1%;
@@ -44,6 +37,8 @@ input.search {
   margin: 100px;
 }
 
+/** allergen filters **/
+
 .allergen-img {
   height: 4.5%;
   width: 4.5%;
@@ -53,15 +48,47 @@ input.search {
 }
 
 input[type="checkbox"], .checked {
-    display: none;
+  display: none;
 }
 
-input[type="checkbox"]:checked ~ .checked
-{
-    display: inline-block;
+input[type="checkbox"]:checked ~ .checked {
+  display: inline-block;
 }
 
-input[type="checkbox"]:checked ~ .unchecked
-{
-    display: none;
+input[type="checkbox"]:checked ~ .unchecked {
+  display: none;
 }
+
+/** restaurants grid **/
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  grid-gap: 1em;
+  padding: 3em;
+}
+
+.rest-tile {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 1fr;
+  grid-gap: .5em;
+  padding: 1em;
+  box-shadow: 0 0.5px 0 0 #ffffff inset, 0 1px 2px 0 #B3B3B3;
+}
+
+.rest-icon {
+  grid-column-start: 1;
+  grid-column-end: 2; 
+  width: 7em;
+  padding: 1em;  
+}
+
+.rest-text {
+  grid-column-start: 2;
+  grid-column-end: 5; 
+}
+
+
+

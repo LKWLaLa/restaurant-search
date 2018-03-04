@@ -13,7 +13,7 @@ class RestaurantsContainer extends Component {
 
   render(){
     return (
-      <div>
+      <div className="grid-container">
         {this.renderRestaurantItems()}
       </div>
       )
