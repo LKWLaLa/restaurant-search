@@ -24,9 +24,9 @@ class MenuContainer extends Component {
           hours.push(<div>{day}: {restaurant.hours[day][0]}</div>)
         }
         return( 
-          <div>
+          <div className="menu-info">
             <h1>{restaurant.name}</h1>       
-            <p>{restaurant.streetAddress}</p>
+            <p>{restaurant.streetAddress}, {restaurant.city}, {restaurant.zip}</p>
             <p>{restaurant.phone}</p>
             <div>
               <h2>Hours: </h2>
@@ -35,15 +35,18 @@ class MenuContainer extends Component {
           </div>
         ) 
       }
-    return(<h1>Menu</h1>)
-  }
+    }
 
     return(
-      <div>
-        {menuInfo()}
-        {this.props.menuFetching ? 
-          <img className="spinner" src={spinner} alt=" loading spinner" /> :
-          <section>{renderMenuSections()}</section> }
+      <div className="menu-container">
+        <header className="menu-header" />
+        <div>
+          {menuInfo()}
+          {this.props.menuFetching ? 
+            <img className="spinner" src={spinner} alt=" loading spinner" /> :
+            <section>{renderMenuSections()}</section> }
+        </div>
+        <footer className="footer" />
       </div>
     )
   }

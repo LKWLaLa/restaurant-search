@@ -13,7 +13,6 @@
   border-bottom: 1px solid black;
   box-shadow: 0 1px #FFFFFF inset, 0 1px 3px rgba(34, 25, 25, 0.4);
   padding: 20px;
-  color: black;
   background: rgb(61, 75, 118);
   color: #FFFFFF;
   text-align: left;
@@ -27,16 +26,39 @@
   font-size: large;
 }
 
+.menu-header {
+  height: 1em;
+  background: linear-gradient(rgba(44,83,158,0.5),rgba(44,83,158,0.5)), url('./assets/food-drawing.jpg');
+  background-size: 400px;
+}
+
+.menu-container {
+  background: linear-gradient(rgba(44,83,158,0.5),rgba(44,83,158,0.5)), url('./assets/food-drawing.jpg');
+  background-size: 400px;
+  min-height: 100vh;
+}
+
+.menu-info {
+  padding: 1em;
+  background: rgb(61, 75, 118);
+  color: #FFFFFF;
+  margin: 0 6em 0 6em;
+}
+
 .menu-section {
   border: 1px solid black;
-  margin: 3%;
+  margin: 0 1em .5em 1em;
   background: rgb(235, 237, 239);
 }
 
 .item {
-  border-bottom: 1px dashed black;
+  border-bottom: 1px dotted black;
 }
 
+.footer {
+  background: rgb(61, 75, 118);
+  height: 3em;
+}
 
 /** home page grid **/
 
