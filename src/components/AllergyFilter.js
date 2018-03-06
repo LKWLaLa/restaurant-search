@@ -9,15 +9,19 @@ import noNuts from '../assets/no-nuts.png';
 
 class AllergyFilter extends Component{
 
-  componentDidUpdate(){
-    let conditionsArray = [];
+  conditionsArray = () => {
+    let conditions = [];
     for (let item in this.props.checkboxes) {
       if (this.props.checkboxes[item] === true){
-        conditionsArray.push(item)
+        conditions.push(item)
       }
     }
+    return conditions
+  }
 
-    this.props.filterRestaurants(conditionsArray)
+  componentDidUpdate(){
+
+    this.props.filterRestaurants(this.conditionsArray())
   }
 
   handleChange = (e) => {  
@@ -40,7 +44,10 @@ class AllergyFilter extends Component{
           checked={this.props.checkboxes.shellfish} onChange={this.handleChange} />
           <img className="allergen-img unchecked" src={shellfish} alt="shellfish" />
           <img className="allergen-img checked" src={noShellfish} alt="no shellfish" />
-        </label><br/>
+        </label>
+        <div className="allergen-text">
+          {this.conditionsArray().length > 0 ? `Avoid ${this.conditionsArray().join(', ')}` : <br/>}
+        </div>
       </div>
     )
   }
