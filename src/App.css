@@ -140,6 +140,7 @@ input[type="checkbox"]:checked ~ .unchecked {
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
   background-color: #ffffff;
   width: 47%;
+  line-height: 60%;
 }
 
 .rest-icon {
@@ -151,6 +152,11 @@ input[type="checkbox"]:checked ~ .unchecked {
 
 .rest-text {
   flex: 3 3 auto;
+}
+
+.food-types {
+  line-height: 100%;
+  font-style: italic;
 }
 
 
