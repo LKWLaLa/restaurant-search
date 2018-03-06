@@ -14,7 +14,7 @@
   box-shadow: 0 1px #FFFFFF inset, 0 1px 3px rgba(34, 25, 25, 0.4);
   padding: 20px;
   color: black;
-  background: rgb(235, 237, 239);
+  background: rgb(61, 75, 118);
 }
 
 .App-title {
@@ -36,20 +36,29 @@
 }
 
 
+/** home page grid **/
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 90px;
+}
+
 /** home page flex container (input, spinner, and allergen filter) **/
 
 .flex-container {
+  grid-row: 1;
   display: flex;
   flex-flow: row wrap;
-  align-items: center;
+  align-items: stretch;
   justify-content: center;
 }
 
 input.search {
-  flex: none;
+  flex: auto;
   width: 25em;
   height: 2em;
-  margin: 2em 6em 2em 6em;
+  margin: 7em 6em 5em 6em;
   border: 2px solid black;
   border-radius: 10px;
   text-align: center;
@@ -58,13 +67,24 @@ input.search {
 }
 
 .spinner {
-  flex: none;
+  grid-row: 2;
+  justify-self: center;
+  align-self: center;
+  padding-bottom: 2em;
+  color: #fff;
+  text-shadow: 0px 4px 3px rgba(0,0,0,0.5),
+             0px 8px 10px rgba(0,0,0,0.5),
+             0px 10px 14px rgba(0,0,0,0.1);
+}
+
+.loading-text {
+  padding: 1em;
 }
 
 /** allergen filters **/
 
 .filter-container {
-  flex: none;
+  flex: auto;
   padding: .1em;
   color: #fff;
   margin: 2em 6em 2em 6em;
@@ -96,53 +116,39 @@ input[type="checkbox"]:checked ~ .unchecked {
   display: none;
 }
 
-/** restaurants grid **/
+/** restaurants flex **/
 
-.grid-container {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(4, 1fr);
-  grid-gap: 1em;
-  padding: 3em;
-  background: #ffffff;
-}
 
 .results-notice {
-  border: 1px solid #B3B3B3;
+  border: 1px solid black;
   padding: 1em;
-  background-color: rgb(235, 237, 239);
-  border-top: 1px solid black;
-  box-shadow: 0 1px #FFFFFF inset;
-  color: black;
+  background: rgb(61, 75, 118);
+  color: white;
+  text-shadow: 0px 4px 3px rgba(0,0,0,0.5);
   margin: 0;
 }
 
 .rest-tile {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: 1fr;
-  grid-gap: .5em;
+  flex: 1 1 auto;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: center;
   padding: 1em;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
   background-color: #ffffff;
+  width: 47%;
 }
 
 .rest-icon {
-  grid-column-start: 1;
-  grid-column-end: 2; 
+  flex: 0 1 auto;
   width: 5em;
   padding: 1em; 
   filter: grayscale(10%); 
 }
 
 .rest-text {
-  grid-column-start: 2;
-  grid-column-end: 5; 
+  flex: 3 3 auto;
 }
-
-.link {
-  text-decoration-style: none;
-}
-
 
 

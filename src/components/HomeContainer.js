@@ -21,11 +21,17 @@ class HomeContainer extends Component {
     return (
       <div className="home">
         <header className="App-header"></header>
-        <div className="flex-container">
-          <Search getRestaurants={this.props.getRestaurants}/>
-          {restaurantsAreReturned ? <AllergyFilter /> : null}
+        <div className="grid-container">
+          <div className="flex-container">
+            <Search getRestaurants={this.props.getRestaurants}/>
+            {restaurantsAreReturned ? <AllergyFilter /> : null}
+          </div> 
+          {fetching ? 
+            <div className="spinner">
+              <img src={spinner} alt="loading" /> 
+              <div className="loading-text">Loading restaurant info...</div>
+             </div> : null}
         </div> 
-        {fetching ? <img className="spinner" src={spinner} alt="loading spinner" /> : null}
         {restaurantsAreReturned ? [locationNotice, <RestaurantsContainer restaurants={this.props.filteredRestaurants || this.props.restaurants}/>] : null}        
       </div>
     )
