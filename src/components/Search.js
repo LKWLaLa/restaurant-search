@@ -26,7 +26,7 @@ class Search extends Component {
         <form onSubmit={this.handleSubmit}>
           <input className="search" value={this.state.value} 
                  onChange={this.handleChange} 
-                 placeholder="Enter city or zipcode to search for restaurants" />
+                 placeholder="Enter city or zipcode" />
         </form>
       </div>
     )
