@@ -20,7 +20,9 @@ class HomeContainer extends Component {
 
     return (
       <div className="home">
-        <header className="App-header"></header>
+        <header className="App-header">
+          <span className="App-title">Eatable</span><span>   - find a safe place to eat!</span>
+        </header>
         <div className="grid-container">
           <div className="flex-container">
             <Search getRestaurants={this.props.getRestaurants}/>
