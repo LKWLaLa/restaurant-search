@@ -10,18 +10,23 @@ import spinner from '../assets/spinner.gif';
 class HomeContainer extends Component {
 
   render(){
-    let locationNotice = this.props.location ? <h4>Showing {this.props.filteredRestaurants.length || this.props.restaurants.length} results in: {this.props.location}</h4> : null
+    let locationNotice = this.props.location ? 
+      <h4 className="results-notice">
+        Showing {this.props.filteredRestaurants.length || this.props.restaurants.length} results in: {this.props.location}
+      </h4> : null
+
+    let restaurantsAreReturned = this.props.restaurants.length > 0
+    let fetching = this.props.restaurantsFetching
+
     return (
-      <div>
-        <header className="App-header">
-          <h1 className="App-title">Restaurants</h1>
-        </header>
-        <Search getRestaurants={this.props.getRestaurants}/>
-        <AllergyFilter />
-        {this.props.restaurantsFetching ? 
-           <img className="spinner" src={spinner} alt="loading spinner" /> :
-           [locationNotice, <RestaurantsContainer restaurants={this.props.filteredRestaurants || this.props.restaurants}/>]
-        }        
+      <div className="home">
+        <header className="App-header"></header>
+        <div className="flex-container">
+          <Search getRestaurants={this.props.getRestaurants}/>
+          {restaurantsAreReturned ? <AllergyFilter /> : null}
+        </div> 
+        {fetching ? <img className="spinner" src={spinner} alt="loading spinner" /> : null}
+        {restaurantsAreReturned ? [locationNotice, <RestaurantsContainer restaurants={this.props.filteredRestaurants || this.props.restaurants}/>] : null}        
       </div>
     )
   }

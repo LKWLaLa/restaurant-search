@@ -27,21 +27,20 @@ class AllergyFilter extends Component{
 
   render(){
     return(
-      <div>
+      <div className="filter-container">
+        <p>Filter for allergens:</p>
         <label htmlFor="nuts">
         <input id="nuts" type="checkbox" value="nuts" 
           checked={this.props.checkboxes.nuts} onChange={this.handleChange} />
           <img className="allergen-img unchecked" src={nuts} alt="nuts" />
-          <img className="allergen-img checked" src={noNuts} alt="no nuts" />
-          
+          <img className="allergen-img checked" src={noNuts} alt="no nuts" />          
         </label>        
         <label htmlFor="shellfish">
           <input id="shellfish" type="checkbox" value="shellfish" 
           checked={this.props.checkboxes.shellfish} onChange={this.handleChange} />
           <img className="allergen-img unchecked" src={shellfish} alt="shellfish" />
           <img className="allergen-img checked" src={noShellfish} alt="no shellfish" />
-        </label>
-
+        </label><br/>
       </div>
     )
   }

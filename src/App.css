@@ -2,12 +2,19 @@
   text-align: center;
 }
 
+.home {
+  background: linear-gradient(rgba(44,83,158,0.5),rgba(44,83,158,0.5)), url('./assets/food-drawing.jpg');
+  background-size: 400px;
+  min-height: 100vh;
+}
+
 .App-header {
-  background-color: #222;
-  height: 75px;
+  height: .2em;
+  border-bottom: 1px solid black;
+  box-shadow: 0 1px #FFFFFF inset, 0 1px 3px rgba(34, 25, 25, 0.4);
   padding: 20px;
-  margin-bottom: 20px;
-  color: white;
+  color: black;
+  background: rgb(235, 237, 239);
 }
 
 .App-title {
@@ -16,11 +23,6 @@
 
 .App-intro {
   font-size: large;
-}
-
-input.search {
-  width: 20%;
-  margin: 1%;
 }
 
 .menu-section {
@@ -33,18 +35,53 @@ input.search {
   border-bottom: 1px dashed black;
 }
 
+
+/** home page flex container (input, spinner, and allergen filter) **/
+
+.flex-container {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+input.search {
+  flex: none;
+  width: 25em;
+  height: 2em;
+  margin: 2em 6em 2em 6em;
+  border: 2px solid black;
+  border-radius: 10px;
+  text-align: center;
+  color: black;
+  font-size: 1em;
+}
+
 .spinner {
-  margin: 100px;
+  flex: none;
 }
 
 /** allergen filters **/
 
+.filter-container {
+  flex: none;
+  padding: .1em;
+  color: #fff;
+  margin: 2em 6em 2em 6em;
+  text-shadow: 0px 4px 3px rgba(0,0,0,0.5),
+             0px 8px 10px rgba(0,0,0,0.5),
+             0px 10px 14px rgba(0,0,0,0.1);
+  font-size: 1.2em;
+}
+
 .allergen-img {
-  height: 4.5%;
-  width: 4.5%;
-  margin: .5%;
-  padding: 1%;
+  height: 40px;
+  width: 40px;
+  margin: .5em .2em 1em .2em;
+  padding: .5em;
   border: 2px solid black;
+  border-radius: 10px;
+  background: white;
 }
 
 input[type="checkbox"], .checked {
@@ -63,10 +100,21 @@ input[type="checkbox"]:checked ~ .unchecked {
 
 .grid-container {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(4, 1fr);
   grid-gap: 1em;
   padding: 3em;
+  background: #ffffff;
+}
+
+.results-notice {
+  border: 1px solid #B3B3B3;
+  padding: 1em;
+  background-color: rgb(235, 237, 239);
+  border-top: 1px solid black;
+  box-shadow: 0 1px #FFFFFF inset;
+  color: black;
+  margin: 0;
 }
 
 .rest-tile {
@@ -75,19 +123,25 @@ input[type="checkbox"]:checked ~ .unchecked {
   grid-template-rows: 1fr;
   grid-gap: .5em;
   padding: 1em;
-  box-shadow: 0 0.5px 0 0 #ffffff inset, 0 1px 2px 0 #B3B3B3;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+  background-color: #ffffff;
 }
 
 .rest-icon {
   grid-column-start: 1;
   grid-column-end: 2; 
-  width: 7em;
-  padding: 1em;  
+  width: 5em;
+  padding: 1em; 
+  filter: grayscale(10%); 
 }
 
 .rest-text {
   grid-column-start: 2;
   grid-column-end: 5; 
+}
+
+.link {
+  text-decoration-style: none;
 }
 
 
