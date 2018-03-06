@@ -13,6 +13,7 @@ class Search extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
     this.props.getRestaurants(this.state.value)
+    this.setState({value: ''})
   }
 
   handleChange = (e) => {
