@@ -152,3 +152,55 @@ input[type="checkbox"]:checked ~ .unchecked {
 }
 
 
+/** media queries **/
+
+@media (max-width: 1000px){
+  input.search {
+    flex: auto;
+    width: 20em;
+    height: 2em;
+    margin: 8em 3em 6em 3em;
+    border: 2px solid black;
+  
+  }
+
+  .filter-container {  
+    margin: 2em 4.5em 2em 5em;
+  }
+}
+
+@media (max-width: 959px){
+  input.search {
+    flex: auto;
+    width: 20em;
+    height: 2em;
+    margin: 4em 3em 1em 3em;
+    border: 2px solid black;
+  
+  }
+
+  .filter-container {  
+    margin: 1em 4.5em 1em 5em;
+  }
+}
+
+@media (max-width: 566px){
+  input.search {
+    flex: auto;
+    width: 15em;
+    height: 2em;
+    margin: 4em 2.5em 1em 2.5em;
+    border: 2px solid black;
+  
+  }
+
+  .filter-container {  
+    margin: 1em 4.5em 1em 5em;
+  }
+
+  .allergen-img {
+    height: 35px;
+    width: 35px;
+    margin: .5em .1em 1em .1em;
+  }
+}
