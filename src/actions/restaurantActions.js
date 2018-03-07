@@ -21,16 +21,24 @@ export const handleNoResults = () => {
   }
 }
 
+export const handleError = (errorCode, errorMsg) => {
+  return {
+    type: 'ERROR',
+    payload: [errorCode, errorMsg]
+  }
+}
+
 export const getRestaurants = (location) => {
   return function(dispatch){
     dispatch(requestRestaurants(location))
 
     ES.SearchRestaurants({address:location}, function(err, res){
-      if(err){
-          console.log(err);
+      //the first argument 'err' always returns null
+      if(res.error === true){
+        return dispatch(handleError(res.errorCode, res.details))
       }
       if(res.restaurants.length === 0){
-        dispatch(handleNoResults())
+        return dispatch(handleNoResults())
       }
       let restaurantArray = res.restaurants
       let apiKeysArray = restaurantArray.map(rest => rest.apiKey)

@@ -17,6 +17,7 @@ class HomeContainer extends Component {
 
     let fetching = this.props.restaurantsFetching
     let noResults = this.props.noResults
+    let errorMsg = this.props.errorMsg
     let restaurantsAreReturned = this.props.restaurants.length > 0 && !fetching
 
     return (
@@ -28,10 +29,8 @@ class HomeContainer extends Component {
             {!fetching ? 
               <div className="search-container">
               <Search getRestaurants={this.props.getRestaurants}/>
-              {noResults ? 
-              <div className="no-results">
-                No results found at that location.
-              </div> : null} 
+              {noResults ? <div className="no-results">No results found at that location.</div> : null} 
+              {errorMsg ? <div className="no-results">{errorMsg}</div> : null}
             </div> : null}
             {restaurantsAreReturned ? <AllergyFilter /> : null}
             {fetching ? 
@@ -57,6 +56,7 @@ const mapStateToProps = (state) => {
     filteredRestaurants: state.filteredRestaurants,
     restaurantsFetching: state.restaurantsFetching,
     noResults: state.noResults,
+    errorMsg: state.errorMsg,
     location: state.location
   }
 }
