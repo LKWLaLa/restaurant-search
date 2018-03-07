@@ -15,6 +15,12 @@ export const receiveRestaurants = (restaurants) => {
   }
 }
 
+export const handleNoResults = () => {
+  return {
+    type: 'NO_RESULTS'
+  }
+}
+
 export const getRestaurants = (location) => {
   return function(dispatch){
     dispatch(requestRestaurants(location))
@@ -23,9 +29,11 @@ export const getRestaurants = (location) => {
       if(err){
           console.log(err);
       }
+      if(res.restaurants.length === 0){
+        dispatch(handleNoResults())
+      }
       let restaurantArray = res.restaurants
       let apiKeysArray = restaurantArray.map(rest => rest.apiKey)
-
       dispatch(getAllMenus(apiKeysArray, restaurantArray))
     });
   }

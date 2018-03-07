@@ -16,6 +16,7 @@ class HomeContainer extends Component {
       </h4> : null
 
     let fetching = this.props.restaurantsFetching
+    let noResults = this.props.noResults
     let restaurantsAreReturned = this.props.restaurants.length > 0 && !fetching
 
     return (
@@ -24,7 +25,14 @@ class HomeContainer extends Component {
           <span className="App-title">Eatable</span><span>   - find a safe place to eat!</span>
         </header>
           <div className="flex-container">
-            {!fetching ? <Search getRestaurants={this.props.getRestaurants}/> : null}
+            {!fetching ? 
+              <div className="search-container">
+              <Search getRestaurants={this.props.getRestaurants}/>
+              {noResults ? 
+              <div className="no-results">
+                No results found at that location.
+              </div> : null} 
+            </div> : null}
             {restaurantsAreReturned ? <AllergyFilter /> : null}
             {fetching ? 
             <div className="spinner">
@@ -48,6 +56,7 @@ const mapStateToProps = (state) => {
     restaurants: state.restaurants,
     filteredRestaurants: state.filteredRestaurants,
     restaurantsFetching: state.restaurantsFetching,
+    noResults: state.noResults,
     location: state.location
   }
 }

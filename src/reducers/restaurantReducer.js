@@ -1,10 +1,12 @@
 const restaurantReducer = (state = {restaurants: [], filteredRestaurants: false, 
   checkboxes: {nuts: false, shellfish: false}, restaurantsFetching: false, 
-  menuSections: [], menuFetching: false}, action)=> {
+  noResults: false,  menuSections: [], menuFetching: false}, action)=> {
   switch (action.type){
     case 'REQUEST_RESTAURANTS':
-      return {...state, restaurantsFetching: true, location: action.payload, 
+      return {...state, restaurantsFetching: true, noResults: false, location: action.payload, 
         filteredRestaurants: false, checkboxes: {nuts: false, shellfish: false}}
+    case 'NO_RESULTS':
+      return {...state, noResults: true, restaurantsFetching: false, restaurants: []}
     case 'RECEIVE_RESTAURANTS':
       return {...state, restaurants: [...action.payload], restaurantsFetching: false}
     case 'REQUEST_MENU':
