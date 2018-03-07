@@ -1,5 +1,4 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
 
 const RestaurantItem = (props) => {
  const {name, streetAddress, city, state, zip, foodTypes, logoUrl} = props.restaurant
