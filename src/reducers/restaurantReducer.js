@@ -1,10 +1,10 @@
 const restaurantReducer = (state = {restaurants: [], filteredRestaurants: false, 
-  checkboxes: {nuts: false, shellfish: false}, restaurantsFetching: false, 
+  noSafeOptionsMsg: false, checkboxes: {nuts: false, shellfish: false}, restaurantsFetching: false, 
   noResults: false,  errorMsg: false, menuSections: [], menuFetching: false}, action)=> {
   switch (action.type){
     case 'REQUEST_RESTAURANTS':
       return {...state, restaurantsFetching: true, noResults: false, location: action.payload, 
-        filteredRestaurants: false, checkboxes: {nuts: false, shellfish: false}}
+        noSafeOptionsMsg: false, errorMsg: false, filteredRestaurants: false, checkboxes: {nuts: false, shellfish: false}}
     case 'NO_RESULTS':
       return {...state, noResults: true, restaurantsFetching: false, restaurants: []}
     case 'ERROR':
@@ -43,6 +43,9 @@ const restaurantReducer = (state = {restaurants: [], filteredRestaurants: false,
 
       if(conditionsArray.length > 0){
         let safeRestaurants = state.restaurants.filter(menuIsSafe)
+        if(safeRestaurants.length === 0){
+          return {...state, filteredRestaurants: safeRestaurants, noSafeOptionsMsg: 'no safe options for'}
+        }
         return {...state, filteredRestaurants: safeRestaurants}
       }
       return {...state, filteredRestaurants: false} 

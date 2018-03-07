@@ -12,7 +12,9 @@ class HomeContainer extends Component {
   render(){
     let locationNotice = this.props.location ? 
       <h4 className="results-notice">
-        Showing {this.props.filteredRestaurants.length || this.props.restaurants.length} results in: {this.props.location}
+        Showing {
+          this.props.filteredRestaurants.length || this.props.noSafeOptionsMsg || this.props.restaurants.length
+        } results in: {this.props.location}
       </h4> : null
 
     let fetching = this.props.restaurantsFetching
@@ -57,6 +59,7 @@ const mapStateToProps = (state) => {
     restaurantsFetching: state.restaurantsFetching,
     noResults: state.noResults,
     errorMsg: state.errorMsg,
+    noSafeOptionsMsg: state.noSafeOptionsMsg,
     location: state.location
   }
 }
