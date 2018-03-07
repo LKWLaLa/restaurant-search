@@ -34,7 +34,12 @@ class HomeContainer extends Component {
               <div className="loading-text">Loading restaurant info...</div>
              </div> : null}
         </div> 
-        {restaurantsAreReturned ? [locationNotice, <RestaurantsContainer restaurants={this.props.filteredRestaurants || this.props.restaurants}/>] : null}        
+        {restaurantsAreReturned ? [
+          locationNotice, 
+          <RestaurantsContainer 
+            restaurants={this.props.filteredRestaurants || this.props.restaurants} 
+            history={this.props.history}/>
+          ] : null}        
       </div>
     )
   }

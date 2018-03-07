@@ -7,7 +7,8 @@ class RestaurantsContainer extends Component {
     return this.props.restaurants.map(restaurant => <RestaurantItem 
       key={restaurant.apiKey} 
       id={restaurant.apiKey} 
-      restaurant={restaurant} />)
+      restaurant={restaurant} 
+      history={this.props.history}/>)
   }
 
 
