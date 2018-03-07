@@ -15,25 +15,23 @@ class HomeContainer extends Component {
         Showing {this.props.filteredRestaurants.length || this.props.restaurants.length} results in: {this.props.location}
       </h4> : null
 
-    let restaurantsAreReturned = this.props.restaurants.length > 0
     let fetching = this.props.restaurantsFetching
+    let restaurantsAreReturned = this.props.restaurants.length > 0 && !fetching
 
     return (
       <div className="home">
         <header className="App-header">
           <span className="App-title">Eatable</span><span>   - find a safe place to eat!</span>
         </header>
-        <div className="grid-container">
           <div className="flex-container">
-            <Search getRestaurants={this.props.getRestaurants}/>
+            {!fetching ? <Search getRestaurants={this.props.getRestaurants}/> : null}
             {restaurantsAreReturned ? <AllergyFilter /> : null}
-          </div> 
-          {fetching ? 
+            {fetching ? 
             <div className="spinner">
               <img src={spinner} alt="loading" /> 
-              <div className="loading-text">Loading restaurant info...</div>
-             </div> : null}
-        </div> 
+              <div className="loading-text">Loading restaurant info for {this.props.location}...</div>
+             </div> : null} 
+          </div> 
         {restaurantsAreReturned ? [
           locationNotice, 
           <RestaurantsContainer 

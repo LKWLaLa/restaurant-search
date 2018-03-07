@@ -60,18 +60,10 @@
   height: 3em;
 }
 
-/** home page grid **/
-
-.grid-container {
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: auto 90px;
-}
 
 /** home page flex container (input, spinner, and allergen filter) **/
 
 .flex-container {
-  grid-row: 1;
   display: flex;
   flex-flow: row wrap;
   align-items: stretch;
@@ -82,7 +74,7 @@ input.search {
   flex: auto;
   width: 25em;
   height: 2em;
-  margin: 7em 6em 5em 6em;
+  margin: 8em 6em 5em 6em;
   border: 2px solid black;
   border-radius: 10px;
   text-align: center;
@@ -91,11 +83,10 @@ input.search {
 }
 
 .spinner {
-  grid-row: 2;
   justify-self: center;
   align-self: center;
   padding-bottom: 2em;
-  margin: 1em 0 1em 0;
+  margin: 8em 0 1em 0;
   color: #fff;
   text-shadow: 0px 4px 3px rgba(0,0,0,0.5),
              0px 8px 10px rgba(0,0,0,0.5),
@@ -112,7 +103,7 @@ input.search {
   flex: auto;
   padding: .1em;
   color: #fff;
-  margin: 2em 6em 1em 6em;
+  margin: 3em 6em 3em 6em;
   text-shadow: 0px 4px 3px rgba(0,0,0,0.5),
              0px 8px 10px rgba(0,0,0,0.5),
              0px 10px 14px rgba(0,0,0,0.1);
@@ -200,7 +191,7 @@ input[type="checkbox"]:checked ~ .unchecked {
   }
 
   .filter-container {  
-    margin: 2em 4.5em 1em 5em;
+    margin: 2em 4.5em 4em 5em;
   }
 }
 
@@ -215,7 +206,7 @@ input[type="checkbox"]:checked ~ .unchecked {
   }
 
   .filter-container {  
-    margin: 1em 4.5em 1em 5em;
+    margin: 1em 4.5em 4em 5em;
   }
 }
 
@@ -224,13 +215,13 @@ input[type="checkbox"]:checked ~ .unchecked {
     flex: auto;
     width: 15em;
     height: 2em;
-    margin: 4em 2.5em 2.3em 2.5em;
+    margin: 4em 2.5em 1em 2.5em;
     border: 2px solid black;
   
   }
 
   .filter-container {  
-    margin: 1em 4.5em 1em 5em;
+    margin: 1em 4.5em 3em 5em;
   }
 
   .allergen-img {
