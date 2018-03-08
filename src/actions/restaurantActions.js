@@ -1,4 +1,4 @@
-const EatStreet = require('eatstreet');
+import EatStreet from '../eatstreet/eatstreet'
 const ES = new EatStreet(process.env.REACT_APP_ES_KEY);
 
 export const requestRestaurants = (location) => {

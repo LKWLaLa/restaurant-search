@@ -4,7 +4,6 @@
   "private": true,
   "dependencies": {
     "dotenv": "^5.0.0",
-    "eatstreet": "^0.0.2",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-redux": "^5.0.6",
