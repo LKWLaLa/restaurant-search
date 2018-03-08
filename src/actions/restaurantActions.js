@@ -1,6 +1,7 @@
 import EatStreet from '../eatstreet/eatstreet'
 import runtimeEnv from '@mars/heroku-js-runtime-env';
-const ES = new EatStreet(process.env.REACT_APP_ES_KEY);
+const env = runtimeEnv();
+const ES = new EatStreet(env.REACT_APP_ES_KEY);
 
 
 export const requestRestaurants = (location) => {
