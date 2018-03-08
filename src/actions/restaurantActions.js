@@ -1,5 +1,5 @@
 import EatStreet from '../eatstreet/eatstreet'
-const ES = new EatStreet(process.env.REACT_APP_ES_KEY);
+const ES = new EatStreet(REACT_APP_ES_KEY);
 
 export const requestRestaurants = (location) => {
   return {
