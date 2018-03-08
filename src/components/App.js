@@ -3,7 +3,6 @@ import '../App.css'
 import { Switch, Route } from 'react-router-dom'
 import HomeContainer from './HomeContainer'
 import MenuContainer from './MenuContainer'
-require('dotenv').config()
 
 
 class App extends Component {
