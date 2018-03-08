@@ -3,7 +3,6 @@ import '../App.css'
 import { Switch, Route } from 'react-router-dom'
 import HomeContainer from './HomeContainer'
 import MenuContainer from './MenuContainer'
-import 'font-awesome/css/font-awesome.min.css'
 require('dotenv').config()
 
 
