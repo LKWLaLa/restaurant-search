@@ -18,8 +18,7 @@ Navigating through restaurant/food options can be time consuming, especially for
 
 ### Demo
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/Ta_uQgizy64" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen> </iframe>
-
+![](https://gfycat.com/LameFondBagworm)
 
 ### License:
 The MIT License (MIT)
