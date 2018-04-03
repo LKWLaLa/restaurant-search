@@ -13,7 +13,6 @@ Navigating through restaurant/food options can be time consuming, especially for
 ###  Dependencies
 
  - This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
-
  - Restaurant data is currently from the [EatStreet Public API](https://developers.eatstreet.com)
 
 
