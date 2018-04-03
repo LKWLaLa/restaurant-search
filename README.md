@@ -18,9 +18,7 @@ Navigating through restaurant/food options can be time consuming, especially for
 
 ### Demo
 
-![](https://thumbs.gfycat.com/LameFondBagworm-size_restricted.gif)
-
-<img src="https://thumbs.gfycat.com/LameFondBagworm-size_restricted.gif" width="48">
+<img src="https://thumbs.gfycat.com/LameFondBagworm-size_restricted.gif" width="700">
 
 ### License:
 The MIT License (MIT)
