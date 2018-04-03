@@ -20,6 +20,8 @@ Navigating through restaurant/food options can be time consuming, especially for
 
 ![](https://thumbs.gfycat.com/LameFondBagworm-size_restricted.gif)
 
+<img src="https://thumbs.gfycat.com/LameFondBagworm-size_restricted.gif" width="48">
+
 ### License:
 The MIT License (MIT)
 
