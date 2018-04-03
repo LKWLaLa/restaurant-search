@@ -5,9 +5,9 @@
 
 Navigating through restaurant/food options can be time consuming, especially for someone with severe food allergies, like myself. When traveling, I tend to spend hours sifting through restaurant menus, searching for potentially safe places to eat.  The time has come to automate some of that work!  Eatable is a tool I am building for myself, which will allow for nut and/or shellfish free restaurant searching within a specific city or zip code.
 
-  - **Language:** Javascript
+  - **Language:** JavaScript
   - **Framework:** React / Redux
-  - **Styling:** Custom CSS
+  - **Styling:** custom CSS
 
 
 ###  Dependencies
@@ -17,6 +17,8 @@ Navigating through restaurant/food options can be time consuming, especially for
 
 
 ### Demo
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Ta_uQgizy64" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen> </iframe>
 
 
 ### License:
