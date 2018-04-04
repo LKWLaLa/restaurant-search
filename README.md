@@ -1,24 +1,26 @@
 ## Eatable
-#### A React based, allergen friendly, restaurant searching app
+#### A React / Redux based, allergen-friendly restaurant searching app
 
 ### About
 
 Navigating through restaurant/food options can be time consuming, especially for someone with severe food allergies, like myself. When traveling, I tend to spend hours sifting through restaurant menus, searching for potentially safe places to eat.  The time has come to automate some of that work!  Eatable is a tool I am building for myself, which will allow for nut and/or shellfish free restaurant searching within a specific city or zip code.
 
   - **Language:** JavaScript
-  - **Framework:** React / Redux
   - **Styling:** custom CSS
+  - **Framework:** React / Redux
 
 
 ###  Dependencies
 
- - This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
- - Restaurant data is currently from the [EatStreet Public API](https://developers.eatstreet.com)
+- Restaurant data is currently from the [EatStreet Public API](https://developers.eatstreet.com)
+ - This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app), and also uses [Redux](https://redux.js.org/).
 
 
 ### Demo
 
 <img src="https://thumbs.gfycat.com/LameFondBagworm-size_restricted.gif" width="400">
+
+Live site available [here](https://dashboard.heroku.com/apps/eatable-app).  Due to API CORS limitations, requests for data can currently only be made in Chrome, on a desktop.  (The site itself is viewable across browsers and on mobile, but API responses will only be received when coming from the client as described above.)
 
 
 ### License:
