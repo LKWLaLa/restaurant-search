@@ -22,7 +22,7 @@ Navigating through restaurant/food options can be time consuming, especially for
 
 Live site available [here](https://eatable-app.herokuapp.com/).  
 
-** Due to API CORS limitations, requests for data can currently only be made in Chrome, on a desktop.  (The site itself is viewable across browsers and on mobile, but API responses will only be received when coming from the client as described above.) **
+**Due to API CORS limitations, requests for data can currently only be made in Chrome, on a desktop.  (The site itself is viewable across browsers and on mobile, but API responses will only be received when coming from the client as described above.)**
 
 
 ### License:
