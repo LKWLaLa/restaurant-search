@@ -7,6 +7,7 @@ import spinner from '../assets/spinner.gif';
 class MenuContainer extends Component {
   
   componentDidMount(){
+    window.scrollTo(0,0)
     this.props.getMenu(this.props.match.params.id)
   }
 
