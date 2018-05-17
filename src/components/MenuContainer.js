@@ -12,7 +12,7 @@ class MenuContainer extends Component {
 
   render(){
     window.scrollTo(0,0)
-    
+
     let renderMenuSections = () => {
       return this.props.sections.map(
         section => <MenuSection key={section.apiKey} section={section} />
@@ -56,7 +56,6 @@ class MenuContainer extends Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
-  console.log(ownProps)
   return {sections: state.menuSections,
     menuFetching: state.menuFetching,
     restaurant: state.restaurants.filter(rest => rest.apiKey === ownProps.match.params.id)[0]
