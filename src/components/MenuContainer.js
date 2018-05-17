@@ -7,11 +7,12 @@ import spinner from '../assets/spinner.gif';
 class MenuContainer extends Component {
   
   componentDidMount(){
-    window.scrollTo(0,0)
     this.props.getMenu(this.props.match.params.id)
   }
 
   render(){
+    window.scrollTo(0,0)
+    
     let renderMenuSections = () => {
       return this.props.sections.map(
         section => <MenuSection key={section.apiKey} section={section} />
