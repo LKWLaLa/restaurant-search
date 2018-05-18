@@ -11,9 +11,7 @@ class MenuContainer extends Component {
   }
 
   render(){
-    window.scrollTo(0,0)
-
-    let renderMenuSections = () => {
+      let renderMenuSections = () => {
       return this.props.sections.map(
         section => <MenuSection key={section.apiKey} section={section} />
     )}
