@@ -8,7 +8,7 @@ import {BrowserRouter as Router} from 'react-router-dom';
 import './index.css';
 import ScrollToTop from './components/ScrollToTop'
 import App from './components/App';
-import registerServiceWorker from './registerServiceWorker';
+import registerServiceWorker, {unregister} from './registerServiceWorker';
 
 let store = createStore(
   rootReducer, 
@@ -16,6 +16,8 @@ let store = createStore(
   applyMiddleware(thunk),
   window.devToolsExtension ? window.devToolsExtension() : f => f
 ));
+
+unregister();
 
 ReactDOM.render((
 <Provider store={store}> 
@@ -26,4 +28,3 @@ ReactDOM.render((
     </Router>
 </Provider>
   ), document.getElementById('root'));
-registerServiceWorker();
