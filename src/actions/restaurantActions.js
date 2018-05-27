@@ -129,8 +129,8 @@ export const getMenu = (id) => {
 
 export const filterRestaurants = (conditionsArray) => {
   const varietiesOf = {
-    nuts: 'nut|almond|cashew|macadamia|pecan|pigñolia|pistachio|praline|pesto|filbert',
-    shellfish: 'shrimp|clam|mussel|lobster|crab|prawn'
+    nuts: 'nut|almond|cashew|macadamia|pecan|pigñolia|pistachio|praline|pesto|filbert|curry',
+    shellfish: 'shrimp|clam|mussel|lobster|crab|prawn|kani'
   }
 
   let regexArray = conditionsArray.map(condition => new RegExp(varietiesOf[condition]), 'g')
