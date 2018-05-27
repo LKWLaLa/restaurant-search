@@ -145,6 +145,15 @@ input[type="checkbox"]:checked ~ .unchecked {
   display: none;
 }
 
+.frequency{
+  width: 2em;
+  border: 2px solid black;
+  border-radius: 5px;
+  margin: 0 .2em 0 .2em;
+  font-size: 1em;
+  text-align: center;
+}
+
 /** restaurants flex **/
 
 

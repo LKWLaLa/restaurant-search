@@ -29,6 +29,22 @@ class AllergyFilter extends Component{
     this.props.updateCheckboxes(term)
   }
 
+  textAndFrequency = () => {
+    if(this.conditionsArray().length > 0 ){
+      return (
+        <div>
+          <p style={{margin: 0}} >Avoid {this.conditionsArray().join(', ')}</p>
+          <span>Maximum: </span>
+          <input className="frequency" type="number" />  
+        </div>
+        )}
+    return (
+      <div>
+        <br/><br/>
+      </div>
+    )
+  }
+
   render(){
     return(
       <div className="filter-container">
@@ -46,7 +62,7 @@ class AllergyFilter extends Component{
           <img className="allergen-img checked" src={noShellfish} alt="no shellfish" />
         </label>
         <div className="allergen-text">
-          {this.conditionsArray().length > 0 ? `Avoid ${this.conditionsArray().join(', ')}` : <br/>}
+          {this.textAndFrequency()}  
         </div>
       </div>
     )
