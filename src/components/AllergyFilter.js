@@ -35,7 +35,7 @@ class AllergyFilter extends Component{
         <div>
           <p style={{margin: 0}} >Avoid {this.conditionsArray().join(', ')}</p>
           <span>Maximum: </span>
-          <input className="frequency" type="number" />  
+          <input className="frequency" type="number" min="0" max="10"/>  
         </div>
         )}
     return (
