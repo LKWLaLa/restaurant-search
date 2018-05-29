@@ -148,5 +148,12 @@ export const updateFilterCheckboxes = (term) => {
   }
 }
 
+export const updateMaximum = (maxValue) => {
+  return {
+    type: 'UPDATE_MAXIMUM',
+    payload: maxValue
+  }
+}
+
 
 

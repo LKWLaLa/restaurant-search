@@ -1,5 +1,5 @@
 const restaurantReducer = (state = {restaurants: [], filteredRestaurants: false, 
-  noSafeOptionsMsg: false, checkboxes: {nuts: false, shellfish: false}, restaurantsFetching: false, 
+  noSafeOptionsMsg: false, checkboxes: {nuts: false, shellfish: false}, maximum: 0, restaurantsFetching: false, 
   noResults: false,  errorMsg: false, menuSections: [], menuFetching: false}, action)=> {
   switch (action.type){
     case 'REQUEST_RESTAURANTS':
@@ -21,6 +21,8 @@ const restaurantReducer = (state = {restaurants: [], filteredRestaurants: false,
     case 'UPDATE_FILTER_CHECKBOXES':
       let term = action.payload
       return {...state, checkboxes: {...state.checkboxes, [term]: !state.checkboxes[term]} }
+    case 'UPDATE_MAXIMUM':
+      return {...state, maximum: action.payload}  
     case 'FILTER_RESTAURANTS':
 
       let conditionsArray = action.payload

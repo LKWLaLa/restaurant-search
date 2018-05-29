@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {filterRestaurants, updateFilterCheckboxes} from '../actions/restaurantActions';
+import {filterRestaurants, updateFilterCheckboxes, updateMaximum} from '../actions/restaurantActions';
 import {connect} from 'react-redux';
 import nuts from '../assets/peanuts.png';
 import shellfish from '../assets/shrimp.png';
@@ -24,9 +24,14 @@ class AllergyFilter extends Component{
     this.props.filterRestaurants(this.conditionsArray())
   }
 
-  handleChange = (e) => {  
+  handleChangeCheckboxes = (e) => {  
     let term = e.target.value  
     this.props.updateCheckboxes(term)
+  }
+
+  handleChangeMaximum = (e) => {  
+    let maxValue = e.target.value  
+    this.props.updateMaximum(maxValue)
   }
 
   textAndFrequency = () => {
@@ -35,7 +40,8 @@ class AllergyFilter extends Component{
         <div>
           <p style={{margin: 0}} >Avoid {this.conditionsArray().join(', ')}</p>
           <span>Maximum: </span>
-          <input className="frequency" type="number" min="0" max="10"/>  
+          <input className="frequency" type="number" min="0" max="10" 
+            value={this.props.maxValue} onChange={this.handleChangeMaximum}/>  
         </div>
         )}
     return (
@@ -51,13 +57,13 @@ class AllergyFilter extends Component{
         <p>Filter for allergens:</p>
         <label htmlFor="nuts">
         <input id="nuts" type="checkbox" value="nuts" 
-          checked={this.props.checkboxes.nuts} onChange={this.handleChange} />
+          checked={this.props.checkboxes.nuts} onChange={this.handleChangeCheckboxes} />
           <img className="allergen-img unchecked" src={nuts} alt="nuts" />
           <img className="allergen-img checked" src={noNuts} alt="no nuts" />          
         </label>        
         <label htmlFor="shellfish">
           <input id="shellfish" type="checkbox" value="shellfish" 
-          checked={this.props.checkboxes.shellfish} onChange={this.handleChange} />
+          checked={this.props.checkboxes.shellfish} onChange={this.handleChangeCheckboxes} />
           <img className="allergen-img unchecked" src={shellfish} alt="shellfish" />
           <img className="allergen-img checked" src={noShellfish} alt="no shellfish" />
         </label>
@@ -71,14 +77,16 @@ class AllergyFilter extends Component{
 
 const mapStateToProps = (state) => {
   return {
-    checkboxes: state.checkboxes
+    checkboxes: state.checkboxes,
+    maxValue: state.maximum
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
     filterRestaurants: (conditionsArray) => dispatch(filterRestaurants(conditionsArray)),
-    updateCheckboxes: (term) => dispatch(updateFilterCheckboxes(term))
+    updateCheckboxes: (term) => dispatch(updateFilterCheckboxes(term)),
+    updateMaximum: (maxValue) => dispatch(updateMaximum(maxValue))
   }
 } 
 
