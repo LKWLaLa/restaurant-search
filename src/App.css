@@ -199,6 +199,15 @@ input[type="checkbox"]:checked ~ .unchecked {
   font-style: italic;
 }
 
+.menu-allergens {
+  text-align: left;
+  padding: 0 20% 0 25%;
+}
+
+.allergen-item {
+  margin: .8em;
+}
+
 
 /** media queries **/
 

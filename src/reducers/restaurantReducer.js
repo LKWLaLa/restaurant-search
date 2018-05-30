@@ -54,6 +54,9 @@ const restaurantReducer = (state = {restaurants: [], filteredRestaurants: false,
         if(safeRestaurants.length === 0){
           return {...state, filteredRestaurants: safeRestaurants, noSafeOptionsMsg: 'no safe options for'}
         }
+        safeRestaurants.forEach(restaurant => {
+          restaurant.menuAllergens = menuAllergens(restaurant)
+        })
         return {...state, filteredRestaurants: safeRestaurants}
       }
       return {...state, filteredRestaurants: false} 
