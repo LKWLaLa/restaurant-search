@@ -39,10 +39,14 @@ const restaurantReducer = (state = {restaurants: [], filteredRestaurants: false,
         return [].concat.apply([], items)
       }
 
-      let menuIsSafe = (restaurant) => {
+      let menuAllergens = (restaurant) => {
         let menuSections = restaurant.menu;
         let riskyItems = menuSections.map(section => sectionAllergens(section, conditionsArray))
-        return [].concat.apply([], riskyItems).length <= parseInt(maxValue, 10)
+        return [].concat.apply([], riskyItems)
+      }
+
+      let menuIsSafe = (restaurant) => {
+        return menuAllergens(restaurant).length <= parseInt(maxValue, 10)
       }
 
       if(conditionsArray.length > 0){
