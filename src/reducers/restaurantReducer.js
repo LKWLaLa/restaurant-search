@@ -25,22 +25,24 @@ const restaurantReducer = (state = {restaurants: [], filteredRestaurants: false,
       return {...state, maximum: action.payload}  
     case 'FILTER_RESTAURANTS':
 
-      let conditionsArray = action.payload
+      let conditionsArray = action.regex
+      let maxValue = action.maxValue
 
-      let conditionIsMet = (condition, section) => {
-        return section.items.every(item => {
-          return (item.name.toLowerCase().search(condition) === -1) && (item.description ? item.description.toLowerCase().search(condition) === -1 : true)
+      let unsafeItems = (condition, section) => {
+        return section.items.filter(item => {
+          return (item.name.toLowerCase().match(condition) !== null) || (item.description ? item.description.toLowerCase().match(condition) !== null : false)
         })
       }
 
-      let sectionIsSafe = (section, conditionsArray) => {
-        return conditionsArray.every(condition => conditionIsMet(condition, section)) 
+      let sectionAllergens = (section, conditionsArray) => {
+        let items = conditionsArray.map(condition => unsafeItems(condition, section))
+        return [].concat.apply([], items)
       }
 
       let menuIsSafe = (restaurant) => {
-          let menuSections = restaurant.menu;
-          let menuVerdict = menuSections.every(section => sectionIsSafe(section, conditionsArray))
-          return menuVerdict
+        let menuSections = restaurant.menu;
+        let riskyItems = menuSections.map(section => sectionAllergens(section, conditionsArray))
+        return [].concat.apply([], riskyItems).length <= parseInt(maxValue, 10)
       }
 
       if(conditionsArray.length > 0){

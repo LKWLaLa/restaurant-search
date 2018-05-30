@@ -127,7 +127,7 @@ export const getMenu = (id) => {
 }
 
 
-export const filterRestaurants = (conditionsArray) => {
+export const filterRestaurants = (conditionsArray, maxValue) => {
   const varietiesOf = {
     nuts: 'nut|almond|cashew|macadamia|pecan|pigñolia|pistachio|praline|pesto|filbert|curry',
     shellfish: 'shrimp|clam|mussel|lobster|crab|prawn|kani'
@@ -137,7 +137,8 @@ export const filterRestaurants = (conditionsArray) => {
 
   return {
     type: 'FILTER_RESTAURANTS',
-    payload: regexArray
+    regex: regexArray,
+    maxValue: maxValue
   }
 }
 

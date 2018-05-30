@@ -20,8 +20,8 @@ class AllergyFilter extends Component{
   }
 
   componentDidUpdate(){
-
-    this.props.filterRestaurants(this.conditionsArray())
+    let maxValue = this.props.maxValue
+    this.props.filterRestaurants(this.conditionsArray(), maxValue)
   }
 
   handleChangeCheckboxes = (e) => {  
@@ -84,7 +84,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    filterRestaurants: (conditionsArray) => dispatch(filterRestaurants(conditionsArray)),
+    filterRestaurants: (conditionsArray, maxValue) => dispatch(filterRestaurants(conditionsArray, maxValue)),
     updateCheckboxes: (term) => dispatch(updateFilterCheckboxes(term)),
     updateMaximum: (maxValue) => dispatch(updateMaximum(maxValue))
   }
