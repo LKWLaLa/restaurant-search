@@ -170,6 +170,11 @@ input[type="checkbox"]:checked ~ .unchecked {
   margin: 0;
 }
 
+.results-number {
+  margin: 4px;
+  color: rgb(255,59,70);  
+}
+
 .rest-tile {
   flex: 1 1 auto;
   display: flex;

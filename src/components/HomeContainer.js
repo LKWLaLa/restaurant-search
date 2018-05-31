@@ -12,9 +12,14 @@ class HomeContainer extends Component {
   render(){
     let locationNotice = this.props.location ? 
       <h4 className="results-notice">
-        Showing {
-          this.props.filteredRestaurants.length || this.props.noSafeOptionsMsg || this.props.restaurants.length
-        } results in: {this.props.location}
+        Showing 
+        <span className="results-number">
+          {
+            this.props.filteredRestaurants.length || 
+            this.props.noSafeOptionsMsg || this.props.restaurants.length
+          } 
+        </span>
+        results in: {this.props.location}
       </h4> : null
 
     let fetching = this.props.restaurantsFetching
