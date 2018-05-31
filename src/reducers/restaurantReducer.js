@@ -50,7 +50,8 @@ const restaurantReducer = (state = {restaurants: [], filteredRestaurants: false,
       }
 
       if(conditionsArray.length > 0){
-        let safeRestaurants = state.restaurants.filter(menuIsSafe)
+        //Make a deep clone, so menuAllergens (below) does not add a property to state.restaurants
+        let safeRestaurants = JSON.parse(JSON.stringify(state.restaurants)).filter(menuIsSafe)
         if(safeRestaurants.length === 0){
           return {...state, filteredRestaurants: safeRestaurants, noSafeOptionsMsg: 'no safe options for'}
         }
