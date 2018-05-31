@@ -59,7 +59,7 @@ const restaurantReducer = (state = {restaurants: [], filteredRestaurants: false,
         })
         return {...state, filteredRestaurants: safeRestaurants}
       }
-      return {...state, filteredRestaurants: false} 
+      return {...state, filteredRestaurants: false, noSafeOptionsMsg: false} 
 
     default:
       return state
