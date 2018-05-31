@@ -42,7 +42,7 @@ class MenuContainer extends Component {
             </div><br/>
             <div>
               <h3>Potential allergens:</h3>
-              {menuAllergens.length > 0 ? <ol className="menu-allergens">{menuAllergens}</ol> : <p>Looks ok!</p>}
+              {menuAllergens && menuAllergens.length > 0 ? <ol className="menu-allergens">{menuAllergens}</ol> : <p>Looks ok!</p>}
             </div>
           </div>
         ) 
@@ -69,7 +69,8 @@ const mapStateToProps = (state, ownProps) => {
   return {sections: state.menuSections,
     menuFetching: state.menuFetching,
     restaurant: state.filteredRestaurants ? 
-    state.filteredRestaurants.filter(rest => rest.apiKey === ownProps.match.params.id)[0] : null
+    state.filteredRestaurants.filter(rest => rest.apiKey === ownProps.match.params.id)[0] 
+    : state.restaurants.filter(rest => rest.apiKey === ownProps.match.params.id)[0]
   }
 }
 
