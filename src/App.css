@@ -72,7 +72,7 @@
 
 .search-container {
   flex: auto;
-  margin: 8em 6em 5em 6em;
+  margin: 8em 2em 5em 2em;
   text-align: center;
 }
 
@@ -114,9 +114,10 @@ input.search {
 
 .filter-container {
   flex: auto;
+  min-width: 386px;
   padding: .1em;
   color: #fff;
-  margin: 3em 6em 3em 6em;
+  margin: 3em 2em 3em 2em;
   text-shadow: 0px 4px 3px rgba(0,0,0,0.5),
              0px 8px 10px rgba(0,0,0,0.5),
              0px 10px 14px rgba(0,0,0,0.1);
@@ -156,7 +157,11 @@ input[type="checkbox"]:checked ~ .unchecked {
 
 .allergen-text {
   height: 51px;
-  width: 245px;
+  width: 100%;
+}
+
+.avoid {
+  margin: 0; 
 }
 
 /** restaurants flex **/
@@ -222,44 +227,42 @@ input[type="checkbox"]:checked ~ .unchecked {
 /** media queries **/
 
 @media (max-width: 1000px){
-  .search-container {
-    flex: auto;
-    margin: 8em 3em 6em 3em;
-  }
-
   input.search {
-    width: 20em;
+    width: 18em;
     height: 2em;
   }
 
-  .filter-container {  
-    margin: 2em 4.5em 4em 5em;
+  .search-container {
+    margin: 8em 2em 2em 2em;
   }
 }
+  
 
-@media (max-width: 959px){
+@media (max-width: 850px){
+  input.search {
+    width: 15em;
+  }
+
   .search-container {
-    flex: auto;   
-    margin: 4em 3em 1em 3em;  
+    margin: 8em 1em 2em 2em;
   }
 
-  .filter-container {  
-    margin: 1em 4.5em 4em 5em;
+  .filter-container {
+    margin: 3em 1em 3em 1em;  
   }
-}
+}  
 
-@media (max-width: 566px){
-  .search-container {
-    flex: auto;
-    margin: 4em 2.5em 1em 2.5em;  
-  }
-
+@media (max-width: 725px){
   input.search {
     width: 15em;
   }
 
   .filter-container {  
-    margin: 1em 4.5em 3em 5em;
+    margin: 1em 2em 1em 2em;
+  }
+
+  .search-container {
+    margin: 4em 2em 2em 2em;
   }
 
   .allergen-img {

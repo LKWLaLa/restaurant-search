@@ -38,7 +38,7 @@ class AllergyFilter extends Component{
     if(this.conditionsArray().length > 0 ){
       return (
         <div>
-          <p style={{margin: 0}} >Avoid {this.conditionsArray().join(', ')}</p>
+          <p className="avoid">Avoid {this.conditionsArray().join(', ')}</p>
           <span>Maximum: </span>
           <input className="frequency" type="number" min="0" max="10" 
             value={this.props.maxValue} onChange={this.handleChangeMaximum}/>  
