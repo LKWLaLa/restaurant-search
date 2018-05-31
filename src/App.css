@@ -156,6 +156,7 @@ input[type="checkbox"]:checked ~ .unchecked {
 
 .allergen-text {
   height: 51px;
+  width: 245px;
 }
 
 /** restaurants flex **/
