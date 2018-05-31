@@ -44,11 +44,7 @@ class AllergyFilter extends Component{
             value={this.props.maxValue} onChange={this.handleChangeMaximum}/>  
         </div>
         )}
-    return (
-      <div>
-        <br/><br/>
-      </div>
-    )
+    return null
   }
 
   render(){
