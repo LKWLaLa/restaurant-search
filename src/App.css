@@ -209,6 +209,10 @@ input[type="checkbox"]:checked ~ .unchecked {
   flex: 3 3 auto;
 }
 
+.rest-name {
+  line-height: 115%;
+}
+
 .food-types {
   line-height: 100%;
   font-style: italic;

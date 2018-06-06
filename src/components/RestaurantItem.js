@@ -11,7 +11,7 @@ const RestaurantItem = (props) => {
     <div className="rest-tile" onClick={handleClick}>
       <img className="rest-icon" src={logoUrl} alt="restaurant logo"/>
       <div className="rest-text">
-        <h2>{name}</h2>
+        <h2 className="rest-name">{name}</h2>
         <p>{streetAddress}, {city}, {state} {zip}</p>
         <p className="food-types">{foodTypes.slice(0,3).join(', ')}</p> 
       </div>
